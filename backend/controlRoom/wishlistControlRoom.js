@@ -1,23 +1,82 @@
-const Wishlist = require("../Models/wishlistModel");
-const Product = require("../Models/productModel");
+const Wishlist = require("../models/wishlistModel");
+const Product = require("../models/productModel");
 
+// ==========================
 // Get Wishlist
-const getWishlist = async (req, res) => {
+// ==========================
+exports.getWishlist = async (req, res) => {
+
+    try {
+
+        // Code here
+
+    } catch (error) {
+
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
+
+    }
 
 };
 
+// ==========================
 // Add Product to Wishlist
-const addToWishlist = async (req, res) => {
+// ==========================
+exports.addToWishlist = async (req, res) => {
+
+    try {
+
+        // Code here
+
+    } catch (error) {
+
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
+
+    }
 
 };
 
-// Remove Product from Wishlist
-const removeFromWishlist = async (req, res) => {
+// ==========================
+// Remove Product From Wishlist
+// ==========================
+exports.removeFromWishlist = async (req, res) => {
+
+    try {
+
+        // Code here
+
+    } catch (error) {
+
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
+
+    }
 
 };
 
-module.exports = {
-    getWishlist,
-    addToWishlist,
-    removeFromWishlist
+// ==========================
+// Clear Wishlist
+// ==========================
+exports.clearWishlist = async (req, res) => {
+
+    try {
+
+        // Code here
+
+    } catch (error) {
+
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
+
+    }
+
 };

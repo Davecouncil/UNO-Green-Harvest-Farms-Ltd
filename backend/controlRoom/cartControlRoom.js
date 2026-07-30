@@ -1,35 +1,102 @@
-const Cart = require("../Models/cartModel");
-const Product = require("../Models/productModel");
+const Cart = require("../models/cartModel");
+const Product = require("../models/productModel");
 
+// ==========================
 // Get Cart
-const getCart = async (req, res) => {
+// ==========================
+exports.getCart = async (req, res) => {
+
+    try {
+
+        // Code here
+
+    } catch (error) {
+
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
+
+    }
 
 };
 
-// Add Product
-const addToCart = async (req, res) => {
+// ==========================
+// Add Product to Cart
+// ==========================
+exports.addToCart = async (req, res) => {
+
+    try {
+
+        // Code here
+
+    } catch (error) {
+
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
+
+    }
 
 };
 
-// Update Quantity
-const updateCart = async (req, res) => {
+// ==========================
+// Update Cart
+// ==========================
+exports.updateCart = async (req, res) => {
+
+    try {
+
+        // Code here
+
+    } catch (error) {
+
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
+
+    }
 
 };
 
+// ==========================
 // Remove Item
-const removeFromCart = async (req, res) => {
+// ==========================
+exports.removeFromCart = async (req, res) => {
+
+    try {
+
+        // Code here
+
+    } catch (error) {
+
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
+
+    }
 
 };
 
+// ==========================
 // Clear Cart
-const clearCart = async (req, res) => {
+// ==========================
+exports.clearCart = async (req, res) => {
 
-};
+    try {
 
-module.exports = {
-    getCart,
-    addToCart,
-    updateCart,
-    removeFromCart,
-    clearCart
+        // Code here
+
+    } catch (error) {
+
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
+
+    }
+
 };

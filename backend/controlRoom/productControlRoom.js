@@ -1,20 +1,34 @@
-const Product = require("../Models/productModel");
+const Product = require("../models/productModel");
 
+// ==========================
 // Create Product
-const createProduct = async (req, res) => {
+// ==========================
+exports.createProduct = async (req, res) => {
     try {
+        const {
+            name,
+            description,
+            price,
+            category,
+            stock,
+            image
+        } = req.body;
 
-        const product = new Product({
-            name: req.body.name,
-            description: req.body.description,
-            category: req.body.category,
-            image: req.body.image,
-            price: req.body.price,
-            stock: req.body.stock,
-            featured: req.body.featured
+        if (!name || !description || !price || !category) {
+            return res.status(400).json({
+                success: false,
+                message: "Please fill in all required fields."
+            });
+        }
+
+        const product = await Product.create({
+            name,
+            description,
+            price,
+            category,
+            stock,
+            image
         });
-
-        await product.save();
 
         res.status(201).json({
             success: true,
@@ -23,25 +37,24 @@ const createProduct = async (req, res) => {
         });
 
     } catch (error) {
-
         res.status(500).json({
             success: false,
             message: error.message
         });
-
     }
 };
 
+// ==========================
 // Get All Products
-const getProducts = async (req, res) => {
-
+// ==========================
+exports.getProducts = async (req, res) => {
     try {
 
         const products = await Product.find();
 
         res.status(200).json({
             success: true,
-            total: products.length,
+            count: products.length,
             products
         });
 
@@ -53,11 +66,44 @@ const getProducts = async (req, res) => {
         });
 
     }
+};
+
+// ==========================
+// Get Product By ID
+// ==========================
+exports.getProductById = async (req, res) => {
+
+    try {
+
+        const product = await Product.findById(req.params.id);
+
+        if (!product) {
+            return res.status(404).json({
+                success: false,
+                message: "Product not found."
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            product
+        });
+
+    } catch (error) {
+
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
+
+    }
 
 };
 
-// Get Single Product
-const getProductById = async (req, res) => {
+// ==========================
+// Update Product
+// ==========================
+exports.updateProduct = async (req, res) => {
 
     try {
 
@@ -72,28 +118,7 @@ const getProductById = async (req, res) => {
 
         }
 
-        res.status(200).json({
-            success: true,
-            product
-        });
-
-    } catch (error) {
-
-        res.status(500).json({
-            success: false,
-            message: error.message
-        });
-
-    }
-
-};
-
-// Update Product
-const updateProduct = async (req, res) => {
-
-    try {
-
-        const product = await Product.findByIdAndUpdate(
+        const updatedProduct = await Product.findByIdAndUpdate(
             req.params.id,
             req.body,
             {
@@ -102,19 +127,10 @@ const updateProduct = async (req, res) => {
             }
         );
 
-        if (!product) {
-
-            return res.status(404).json({
-                success: false,
-                message: "Product not found."
-            });
-
-        }
-
         res.status(200).json({
             success: true,
             message: "Product updated successfully.",
-            product
+            updatedProduct
         });
 
     } catch (error) {
@@ -128,12 +144,14 @@ const updateProduct = async (req, res) => {
 
 };
 
+// ==========================
 // Delete Product
-const deleteProduct = async (req, res) => {
+// ==========================
+exports.deleteProduct = async (req, res) => {
 
     try {
 
-        const product = await Product.findByIdAndDelete(req.params.id);
+        const product = await Product.findById(req.params.id);
 
         if (!product) {
 
@@ -143,6 +161,8 @@ const deleteProduct = async (req, res) => {
             });
 
         }
+
+        await Product.findByIdAndDelete(req.params.id);
 
         res.status(200).json({
             success: true,
@@ -158,12 +178,4 @@ const deleteProduct = async (req, res) => {
 
     }
 
-};
-
-module.exports = {
-    createProduct,
-    getProducts,
-    getProductById,
-    updateProduct,
-    deleteProduct
 };
