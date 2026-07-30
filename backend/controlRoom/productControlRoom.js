@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const Product = require("../models/productModel");
 
 // ==========================
@@ -72,8 +73,14 @@ exports.getProducts = async (req, res) => {
 // Get Product By ID
 // ==========================
 exports.getProductById = async (req, res) => {
-
     try {
+
+        if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid product ID."
+            });
+        }
 
         const product = await Product.findById(req.params.id);
 
@@ -97,25 +104,28 @@ exports.getProductById = async (req, res) => {
         });
 
     }
-
 };
 
 // ==========================
 // Update Product
 // ==========================
 exports.updateProduct = async (req, res) => {
-
     try {
+
+        if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid product ID."
+            });
+        }
 
         const product = await Product.findById(req.params.id);
 
         if (!product) {
-
             return res.status(404).json({
                 success: false,
                 message: "Product not found."
             });
-
         }
 
         const updatedProduct = await Product.findByIdAndUpdate(
@@ -134,22 +144,26 @@ exports.updateProduct = async (req, res) => {
         });
 
     } catch (error) {
-
         res.status(500).json({
             success: false,
             message: error.message
         });
-
     }
-
 };
-
 // ==========================
 // Delete Product
 // ==========================
 exports.deleteProduct = async (req, res) => {
 
     try {
+
+
+        if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid product ID."
+            });
+        }
 
         const product = await Product.findById(req.params.id);
 
