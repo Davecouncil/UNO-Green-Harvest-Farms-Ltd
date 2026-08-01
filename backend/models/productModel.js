@@ -53,6 +53,10 @@ const productSchema = new mongoose.Schema(
             type: String,
             default: "",
         },
+        unit: {
+    type: String,
+    default: "kg",
+}
     },
     {
         timestamps: true,
