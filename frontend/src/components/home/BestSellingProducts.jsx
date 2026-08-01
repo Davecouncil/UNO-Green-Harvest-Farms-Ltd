@@ -135,7 +135,9 @@ import { FiArrowRight } from "react-icons/fi";
 
 import ProductFilter from "../product/ProductFilter";
 import ProductGrid from "../product/ProductGrid";
-function BestSellingProducts() {
+
+
+function BestSellingProducts({products}) {
 const [selectedCategory, setSelectedCategory] = useState("All");
 //   const [products, setProducts] = useState([]);
 
