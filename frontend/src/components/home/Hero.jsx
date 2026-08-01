@@ -16,12 +16,12 @@ function Hero() {
         <div className="max-w-xl">
 
           {/* Badge */}
-          <span className="inline-block bg-[#CD9707] text-white px-5 py-2 rounded-full text-sm font-semibold mb-6">
+          <span className="inline-block fade-up delay-300 bg-[#CD9707] text-white px-5 py-2 rounded-full text-sm font-semibold mb-6">
             FARM FRESH SINCE 1972
           </span>
 
           {/* Heading */}
-          <h1 className="text-6xl md:text-7xl font-sm font-dm leading-tight text-white">
+          <h1 className="text-6xl md:text-7xl font-sm font-dm leading-tight text-white fade-up delay-300">
             From Our Fields
             <br />
             <span className="text-[#dcb458]">
@@ -30,14 +30,14 @@ function Hero() {
           </h1>
 
           {/* Paragraph */}
-          <p className="mt-5 text-lg leading-8 text-gray-200">
+          <p className="mt-5 text-lg leading-8 text-gray-200 fade-up delay-500">
             Experience the difference of farm-fresh organic produce, <br />
             harvested at peak ripeness and delivered straight to your door. <br />
             No middlemen, just pure goodness.
           </p>
 
           {/* Buttons */}
-          <div className="mt-10 flex gap-5">
+          <div className="mt-10 fade-up delay-700 flex gap-5">
 
             <button className="flex items-center gap-2 bg-[#dcb458] hover:bg-[#c79f2d] px-8 py-4 rounded-full text-white font-semibold transition">
               Shop Now
@@ -51,7 +51,7 @@ function Hero() {
           </div>
 
         </div>
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center text-white">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center text-white fade-up delay-700">
   <span className="text-xs tracking-[0.3em] uppercase mb-3">
     Scroll
   </span>

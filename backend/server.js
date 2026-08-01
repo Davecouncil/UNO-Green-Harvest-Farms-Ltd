@@ -5,12 +5,22 @@ console.log("DNS:", dns.getServers());
 
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");   // <-- Add this
 const path = require("path");
+
 require("dotenv").config({
-  path: path.join(__dirname, ".env")
+  path: path.join(__dirname, ".env"),
 });
 
 const app = express();
+
+// CORS Middleware
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 
