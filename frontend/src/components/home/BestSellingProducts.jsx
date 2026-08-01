@@ -126,31 +126,42 @@
 // }
 
 // export default BestSellingProducts;
-
+import { IoIosArrowDropright } from "react-icons/io";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FiArrowRight } from "react-icons/fi";
 
-import { getProducts } from "../../services/productService";
+// import { getProducts } from "../../services/productService";
 
 import ProductFilter from "../product/ProductFilter";
 import ProductGrid from "../product/ProductGrid";
 function BestSellingProducts() {
-  const [products, setProducts] = useState([]);
+const [selectedCategory, setSelectedCategory] = useState("All");
+//   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const data = await getProducts();
-        console.log("Products". data)
-        setProducts(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+//   useEffect(() => {
+//     const fetchProducts = async () => {
+//       try {
+//         const data = await getProducts();
+//         setProducts(data);
+//       } catch (error) {
+//         console.error(error);
+//       }
+//     };
 
-    fetchProducts();
-  }, []);
+//     fetchProducts();
+//   }, []);
+
+  const filteredProducts =
+  selectedCategory === "All"
+    ? products
+    : products.filter(
+        (product) => product.category.toLowerCase() === selectedCategory.toLowerCase()
+    );
+
+
+      const categories = ["All", ...new Set(products.map((product) => product.category)),];
+
 
   return (
     <section className="max-w-7xl mx-auto py-20">
@@ -167,13 +178,19 @@ function BestSellingProducts() {
           </h2>
         </div>
 
-        <button className="text-green-700 hover:text-green-900 font-medium">
+        {/* <button className="text-green-700 hover:text-green-900 font-medium" >
           View All Products →
-        </button>
+        </button> */}
+        <Link to= "/products" className="text-green-700 flex items-center gap-2 justify-center hover:text-green-900 font-medium">
+        View all Product <IoIosArrowDropright /> </Link>
 
       </div>
-
-      <ProductGrid products={products} />
+       <ProductFilter
+         categories={categories}
+         selectedCategory={selectedCategory}
+         setSelectedCategory={setSelectedCategory}
+        />
+      <ProductGrid products={filteredProducts} />
 
     </section>
   );
