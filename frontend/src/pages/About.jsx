@@ -1,4 +1,49 @@
 import PageHero from "../components/ui/PageHero";
+import FeatureGrid from "../components/ui/FeatureGrid";
+import { Heart, Users, Globe } from "lucide-react";
+
+const values = [
+  {
+    icon: Heart,
+    title: "Health First",
+    description:
+      "We grow food that nourishes bodies and delights taste buds. No synthetic pesticides, no GMOs, no shortcuts — just pure, wholesome produce packed with nutrients.",
+  },
+  {
+    icon: Users,
+    title: "Community Centered",
+    description:
+      "We pay fair wages, support local food banks, and partner with schools to teach children about farming. A thriving community grows from healthy food systems.",
+  },
+  {
+    icon: Globe,
+    title: "Planet Positive",
+    description:
+      "Every farming decision considers its environmental impact. We are committed to leaving the land healthier than we found it for generations to come.",
+  },
+];
+const team = [
+  {
+    image: "/images/team-carlos.png",
+    name: "Carlos Vasquez-Ortega",
+    role: "Founder & Head Farmer",
+  },
+  {
+    image: "/images/team-elena.png",
+    name: "Elena Ortega",
+    role: "Director of Sustainability",
+  },
+  {
+    image: "/images/team-miguel.png",
+    name: "Miguel Herrera",
+    role: "Head of Operations",
+  },
+  {
+    image: "/images/team-sofia.png",
+    name: "Sofia Chen",
+    role: "Smart Farming Lead",
+  },
+];
 
 function About() {
   return (
@@ -54,6 +99,46 @@ function About() {
           className="w-full h-[440px] object-cover rounded-2xl"
         />
 
+      </section>
+
+      {/* Core Values */}
+      <FeatureGrid
+        badge="What We Stand For"
+        title="Our Core Values"
+        items={values}
+        align="center"
+        iconBg="bg-[#f5e2b8]"
+        iconColor="text-[#D69B06]"
+        columns="md:grid-cols-3"
+      />
+      {/* Meet Our Team */}
+      <section className="bg-[#F4F8F1] py-20">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+
+          <p className="uppercase tracking-widest text-sm text-[#4D7C0F] font-semibold mb-3">
+            The People Behind the Produce
+          </p>
+
+          <h2 className="font-dm text-4xl mb-14">
+            Meet Our Team
+          </h2>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {team.map((member) => (
+              <div key={member.name}>
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-64 object-cover rounded-2xl mb-4"
+                />
+
+                <h3 className="font-dm text-lg">{member.name}</h3>
+                <p className="text-[#4D7C0F] text-sm mt-1">{member.role}</p>
+              </div>
+            ))}
+          </div>
+
+        </div>
       </section>
 
     </div>

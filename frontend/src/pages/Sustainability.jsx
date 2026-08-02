@@ -1,5 +1,6 @@
 import PageHero from "../components/ui/PageHero";
 import CtaBanner from "../components/ui/CTABanner";
+import FeatureGrid from "../components/ui/FeatureGrid";
 import { Globe, Droplet, Bug, Recycle, Sprout, Cloud } from "lucide-react";
 
 const practices = [
@@ -75,50 +76,19 @@ function Sustainability() {
       </section>
 
       {/* Sustainable Practices */}
-      <section className="bg-[#F4F8F1] py-20">
-        <div className="max-w-7xl mx-auto px-6">
+      <FeatureGrid
+        badge="How We Do It"
+        title="Our Sustainable Practices"
+        items={practices}
+      />
 
-          <div className="text-center mb-14">
-            <p className="uppercase tracking-widest text-sm text-[#D69B06] font-semibold mb-3">
-              How We Do It
-            </p>
-
-            <h2 className="font-dm text-4xl">
-              Our Sustainable Practices
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {practices.map((practice) => {
-              const Icon = practice.icon;
-
-              return (
-                <div
-                  key={practice.title}
-                  className="bg-white rounded-2xl p-6 border border-gray-100"
-                >
-                  <div className="w-11 h-11 rounded-full bg-green-100 flex items-center justify-center mb-4">
-                    <Icon size={20} className="text-[#4D7C0F]" />
-                  </div>
-
-                  <h3 className="font-dm text-lg mb-3">{practice.title}</h3>
-
-                  <p className="text-gray-600 text-sm leading-6">
-                    {practice.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-
-        </div>
-      </section>
       <CtaBanner
-  title="Join Us in Growing a Better Future"
-  description="Every purchase supports regenerative agriculture, fair wages for farm workers, and a healthier planet."
-  buttonText="Shop Sustainable Products"
-  buttonLink="/products"
-/>
+        title="Join Us in Growing a Better Future"
+        description="Every purchase supports regenerative agriculture, fair wages for farm workers, and a healthier planet."
+        buttonText="Shop Sustainable Products"
+        buttonLink="/products"
+      />
+
     </div>
   );
 }
