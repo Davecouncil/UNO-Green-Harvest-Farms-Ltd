@@ -5,10 +5,12 @@ import {
   FiUser,
   FiShoppingCart,
   FiMenu,
+  FiX,
 } from "react-icons/fi";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +21,14 @@ const Navbar = () => {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // lock body scroll while mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -33,27 +43,26 @@ const Navbar = () => {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-white shadow-md py-4"
-          : "bg-transparent py-7"
+        scrolled || menuOpen
+          ? "bg-white shadow-md py-3"
+          : "bg-transparent py-5"
       }`}
     >
-      <div className="max-w-7xl mx-fit px-4  flex  gap-4 items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 flex gap-4 items-center justify-between">
 
         {/* ================= Logo ================= */}
 
-        <NavLink to="/">
-          {/* Replace with your own logo */}
+        <NavLink to="/" onClick={() => setMenuOpen(false)}>
           <img
             src="/images/logo1.png"
             alt="UNO Green Harvest"
             className={`transition-all duration-500 object-contain ${
-              scrolled ? "w-16" : "w-20"
+              scrolled || menuOpen ? "w-14" : "w-16"
             }`}
           />
         </NavLink>
 
-        {/* ================= Navigation ================= */}
+        {/* ================= Desktop Navigation ================= */}
 
         <ul className="hidden lg:flex items-center gap-2">
 
@@ -62,11 +71,11 @@ const Navbar = () => {
               <NavLink
                 to={link.path}
                 className={({ isActive }) =>
-                  `transition-all duration-300 px-4 py-2 rounded-lg text-sm font-semibold ${
+                  `transition-all duration-300 px-3 py-1.5 rounded-lg text-sm font-semibold ${
                     isActive
-                      ? "bg-grey-300 text-[#dcb458] "
+                      ? "bg-gray-100 text-[#dcb458]"
                       : scrolled
-                      ? "text-gray-800 hover:text-[#dcb458] "
+                      ? "text-gray-800 hover:text-[#dcb458]"
                       : "text-white hover:bg-white/10"
                   }`
                 }
@@ -78,11 +87,11 @@ const Navbar = () => {
 
         </ul>
 
-        {/* ================= Right Icons ================= */}
+        {/* ================= Icons (visible on all screen sizes) ================= */}
 
         <div
-          className={`hidden lg:flex items-center gap-7 text-xl transition-colors duration-300 ${
-            scrolled ? "text-gray-800" : "text-white"
+          className={`flex items-center gap-3 sm:gap-5 text-lg transition-colors duration-300 ${
+            scrolled || menuOpen ? "text-gray-800" : "text-white"
           }`}
         >
 
@@ -109,19 +118,46 @@ const Navbar = () => {
 
           </NavLink>
 
+          {/* ============= Mobile Menu Toggle ============= */}
+
+          <button
+            className="lg:hidden text-2xl p-1"
+            onClick={() => setMenuOpen((prev) => !prev)}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <FiX /> : <FiMenu />}
+          </button>
+
         </div>
 
-        {/* ================= Mobile Menu ================= */}
-
-        <button
-          className={`lg:hidden text-3xl transition ${
-            scrolled ? "text-gray-800" : "text-white"
-          }`}
-        >
-          <FiMenu />
-        </button>
-
       </div>
+
+      {/* ================= Mobile Slide-Down Menu ================= */}
+
+      <div
+        className={`lg:hidden overflow-hidden transition-all duration-300 bg-white ${
+          menuOpen ? "max-h-[500px] shadow-md" : "max-h-0"
+        }`}
+      >
+        <ul className="flex flex-col px-4 py-2">
+          {navLinks.map((link) => (
+            <li key={link.name} className="border-b border-gray-100 last:border-none">
+              <NavLink
+                to={link.path}
+                onClick={() => setMenuOpen(false)}
+                className={({ isActive }) =>
+                  `block py-3 text-sm font-semibold ${
+                    isActive ? "text-[#dcb458]" : "text-gray-800"
+                  }`
+                }
+              >
+                {link.name}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </div>
+
     </header>
   );
 };

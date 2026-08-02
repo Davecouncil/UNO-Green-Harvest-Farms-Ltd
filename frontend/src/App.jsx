@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/layout/Navbar";
 
+
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import ProductDetails from "./pages/ProductDetails";
@@ -22,6 +23,8 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 
 import NotFound from "./pages/NotFound";
+
+import Footer from "./components/layout/Footer";
 
 function App() {
   return (
@@ -52,6 +55,7 @@ function App() {
 
         <Route path="*" element={<NotFound />} />
       </Routes>
+       <Footer />
     </>
   );
 }
