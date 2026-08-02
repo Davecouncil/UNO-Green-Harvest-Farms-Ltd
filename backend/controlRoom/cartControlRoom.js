@@ -8,7 +8,7 @@ const Product = require("../models/productModel");
 exports.getCart = async (req, res) => {
     try {
 
-        const { userId } = req.body;
+        const userId = req.user.id;
 
         if (!mongoose.Types.ObjectId.isValid(userId)) {
             return res.status(400).json({
@@ -48,7 +48,8 @@ exports.addToCart = async (req, res) => {
 
     try {
 
-        const { userId, productId, quantity } = req.body;
+        const userId = req.user.id;
+        const { productId, quantity } = req.body;
 
         if (
             !mongoose.Types.ObjectId.isValid(userId) ||
@@ -117,11 +118,12 @@ exports.updateCart = async (req, res) => {
 
     try {
 
-        const { userId, quantity } = req.body;
+        const userId = req.user.id;
+        const { quantity } = req.body;
         const { productId } = req.params;
 
-        const cart = await Cart.findOne({ user: userId });
-
+        const cart = await Cart.findOne({ user: userId }); 
+        
         if (!cart) {
             return res.status(404).json({
                 success: false,
@@ -168,8 +170,8 @@ exports.removeFromCart = async (req, res) => {
 
     try {
 
-        const { userId } = req.body;
         const { productId } = req.params;
+        const userId = req.user.id;
 
         const cart = await Cart.findOne({ user: userId });
 
@@ -210,7 +212,7 @@ exports.clearCart = async (req, res) => {
 
     try {
 
-        const { userId } = req.body;
+        const userId = req.user.id;
 
         const cart = await Cart.findOne({ user: userId });
 

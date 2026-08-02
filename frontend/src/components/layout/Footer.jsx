@@ -7,9 +7,18 @@ import {
   FiPhone,
   FiMail,
 } from "react-icons/fi";
+import { RiPinterestFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 function Footer() {
+  const socialLinks = [
+    { icon: FiFacebook, href: "#" },
+    { icon: FiInstagram, href: "#" },
+    { icon: FiTwitter, href: "#" },
+    { icon: FiYoutube, href: "#" },
+    { icon: RiPinterestFill, href: "#" },
+  ];
+
   return (
     <footer className="bg-[#022B00] w-full max-w-full overflow-x-hidden text-white mt-10">
       {/* Top */}
@@ -22,11 +31,22 @@ function Footer() {
             className="w-12 max-w-full bg-white rounded-md p-1 mb-4"
           />
 
-          <p className="text-sm text-gray-300 leading-6 max-w-xs mb-4 break-words">
+          <p className="text-sm text-gray-300 leading-6 max-w-xs mb-5 break-words">
             Fresh organic produce from our family farm to your family table.
             Sustainably grown, harvested at peak ripeness, delivered with
             care.
           </p>
+
+          <div className="flex items-center gap-3">
+            {socialLinks.map(({ icon: Icon, href }, index) => (
+              <a key={index}
+                href={href}
+                className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 hover:border-white/40 transition"
+              >
+                <Icon size={15} />
+              </a>
+            ))}
+          </div>
         </div>
 
         {/* Quick Links */}

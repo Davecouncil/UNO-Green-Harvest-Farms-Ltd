@@ -1,7 +1,6 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./components/layout/Navbar";
-
 
 import Home from "./pages/Home";
 import Products from "./pages/Products";
@@ -27,9 +26,12 @@ import NotFound from "./pages/NotFound";
 import Footer from "./components/layout/Footer";
 
 function App() {
+  const location = useLocation();
+  const hideNavAndFooter = ["/login", "/signup"].includes(location.pathname);
+
   return (
     <>
-      <Navbar />
+      {!hideNavAndFooter && <Navbar />}
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -55,7 +57,8 @@ function App() {
 
         <Route path="*" element={<NotFound />} />
       </Routes>
-       <Footer />
+
+      {!hideNavAndFooter && <Footer />}
     </>
   );
 }

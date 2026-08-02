@@ -1,6 +1,7 @@
 import { FiArrowRight, FiSun } from "react-icons/fi";
 import { GiDrippingHoney, GiPlantRoots } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import StatCard from "../../components/ui/StatsCard"; 
 
 function SmartFarming() {
   return (
@@ -75,31 +76,12 @@ function SmartFarming() {
 
           {/* RIGHT STATS */}
           <div className="mt-8 lg:mt-0 flex items-center justify-center">
-
             <div className="grid grid-cols-2 gap-3">
-
-              {[
-                ["98%", "Water Efficiency"],
-                ["45%", "Higher Yield"],
-                ["24/7", "Crop Monitoring"],
-                ["0", "Chemical Runoff"],
-              ].map(([value, label]) => (
-                <div
-                  key={label}
-                  className="w-32 h-20 rounded-xl border border-white/15 bg-white/10 backdrop-blur-md flex flex-col items-center justify-center text-center"
-                >
-                  <h3 className="text-[#f4b942] text-2xl font-bold">
-                    {value}
-                  </h3>
-
-                  <p className="text-white/90 mt-1 text-xs">
-                    {label}
-                  </p>
-                </div>
-              ))}
-
+              <StatCard value="98%" label="Water Efficiency" />
+              <StatCard value="45%" label="Higher Yield" />
+              <StatCard value="24/7" label="Crop Monitoring" />
+              <StatCard value="0" label="Chemical Runoff" />
             </div>
-
           </div>
 
         </div>

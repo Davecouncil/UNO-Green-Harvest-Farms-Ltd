@@ -1,6 +1,26 @@
+import { useState } from "react";
+import { useCart } from "../../hooks/useCart";
+import Button from "../ui/Button";
+
 function ProductCard({ product }) {
+  const { addToCart } = useCart();
+  const [status, setStatus] = useState("idle"); // idle | loading | added | error
+
+  const handleAddToCart = async () => {
+    setStatus("loading");
+    try {
+      await addToCart(product._id, 1);
+      setStatus("added");
+      setTimeout(() => setStatus("idle"), 1500);
+    } catch (error) {
+      console.error("Add to cart failed:", error);
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 1500);
+    }
+  };
+
   return (
-    <div className="group bg-white fade-up delay-1000 rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300">
+    <div className="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300">
 
       {/* Image */}
       <div className="relative overflow-hidden">
@@ -22,9 +42,14 @@ function ProductCard({ product }) {
             transition-all duration-300
           "
         >
-          <button className="bg-[#2D7A0F] hover:bg-[#25650d] transition text-white rounded-full px-4 py-1.5 text-xs sm:text-sm font-medium shadow-md">
-            Add to Cart
-          </button>
+          <Button
+            variant="secondary"
+            loading={status === "loading"}
+            onClick={handleAddToCart}
+            className="!px-4 !py-1.5 !text-xs sm:!text-sm shadow-md"
+          >
+            {status === "added" ? "Added ✓" : status === "error" ? "Failed" : "Add to Cart"}
+          </Button>
         </div>
 
       </div>
@@ -32,22 +57,18 @@ function ProductCard({ product }) {
       {/* Content */}
       <div className="p-3 sm:p-4">
 
-        {/* Category */}
         <p className="uppercase text-[10px] sm:text-xs tracking-wider text-gray-500 mb-1">
           {product.category}
         </p>
 
-        {/* Name */}
         <h3 className="font-dm text-sm sm:text-lg text-gray-900 truncate">
           {product.name}
         </h3>
 
-        {/* Description */}
         <p className="text-gray-500 text-xs sm:text-sm mt-1 line-clamp-2">
           {product.description}
         </p>
 
-        {/* Price */}
         <div className="mt-3">
           <span className="text-base sm:text-xl font-bold text-black">
             ${product.price}
