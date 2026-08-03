@@ -123,7 +123,7 @@ exports.updateCart = async (req, res) => {
         const { productId } = req.params;
 
         const cart = await Cart.findOne({ user: userId }); 
-        
+
         if (!cart) {
             return res.status(404).json({
                 success: false,
@@ -187,6 +187,7 @@ exports.removeFromCart = async (req, res) => {
         );
 
         await cart.save();
+        
 
         res.status(200).json({
             success: true,

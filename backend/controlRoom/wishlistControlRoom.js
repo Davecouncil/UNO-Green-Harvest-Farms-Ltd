@@ -2,23 +2,11 @@ const mongoose = require("mongoose");
 const Wishlist = require("../models/wishlistModel");
 const Product = require("../models/productModel");
 
-// ==========================
-// Get Wishlist
-// ==========================
 exports.getWishlist = async (req, res) => {
     try {
+        const userId = req.user.id;
 
-        const { userId } = req.body;
-
-        if (!mongoose.Types.ObjectId.isValid(userId)) {
-            return res.status(400).json({
-                success: false,
-                message: "Invalid user ID."
-            });
-        }
-
-        const wishlist = await Wishlist.findOne({ user: userId })
-            .populate("products");
+        const wishlist = await Wishlist.findOne({ user: userId }).populate("products");
 
         if (!wishlist) {
             return res.status(404).json({
@@ -33,27 +21,19 @@ exports.getWishlist = async (req, res) => {
         });
 
     } catch (error) {
-
         res.status(500).json({
             success: false,
             message: error.message
         });
-
     }
 };
 
-// ==========================
-// Add Product to Wishlist
-// ==========================
 exports.addToWishlist = async (req, res) => {
     try {
+        const userId = req.user.id;
+        const { productId } = req.body;
 
-        const { userId, productId } = req.body;
-
-        if (
-            !mongoose.Types.ObjectId.isValid(userId) ||
-            !mongoose.Types.ObjectId.isValid(productId)
-        ) {
+        if (!mongoose.Types.ObjectId.isValid(productId)) {
             return res.status(400).json({
                 success: false,
                 message: "Invalid ID."
@@ -92,6 +72,7 @@ exports.addToWishlist = async (req, res) => {
         wishlist.products.push(productId);
 
         await wishlist.save();
+        await wishlist.populate("products");
 
         res.status(200).json({
             success: true,
@@ -100,22 +81,16 @@ exports.addToWishlist = async (req, res) => {
         });
 
     } catch (error) {
-
         res.status(500).json({
             success: false,
             message: error.message
         });
-
     }
 };
 
-// ==========================
-// Remove Product From Wishlist
-// ==========================
 exports.removeFromWishlist = async (req, res) => {
     try {
-
-        const { userId } = req.body;
+        const userId = req.user.id;
         const { productId } = req.params;
 
         const wishlist = await Wishlist.findOne({ user: userId });
@@ -132,6 +107,7 @@ exports.removeFromWishlist = async (req, res) => {
         );
 
         await wishlist.save();
+        await wishlist.populate("products");
 
         res.status(200).json({
             success: true,
@@ -140,22 +116,16 @@ exports.removeFromWishlist = async (req, res) => {
         });
 
     } catch (error) {
-
         res.status(500).json({
             success: false,
             message: error.message
         });
-
     }
 };
 
-// ==========================
-// Clear Wishlist
-// ==========================
 exports.clearWishlist = async (req, res) => {
     try {
-
-        const { userId } = req.body;
+        const userId = req.user.id;
 
         const wishlist = await Wishlist.findOne({ user: userId });
 
@@ -177,11 +147,9 @@ exports.clearWishlist = async (req, res) => {
         });
 
     } catch (error) {
-
         res.status(500).json({
             success: false,
             message: error.message
         });
-
     }
 };

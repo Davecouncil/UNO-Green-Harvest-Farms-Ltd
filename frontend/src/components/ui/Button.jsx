@@ -15,6 +15,7 @@ export default function Button({
     primary: "bg-[#dcb458] hover:bg-[#c9a24d] text-black",
     secondary: "bg-[#2D7A0F] hover:bg-[#25650d] text-white",
     outline: "border border-gray-300 text-gray-600 hover:bg-gray-50",
+    success: "bg-green-600 hover:bg-green-600 text-white",
   };
 
   return (

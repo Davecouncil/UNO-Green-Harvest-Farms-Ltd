@@ -1,12 +1,20 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useCart } from "../../hooks/useCart";
+import { useWishlist } from "../../hooks/useWishlist";
+import { FiHeart } from "react-icons/fi";
 import Button from "../ui/Button";
 
 function ProductCard({ product }) {
   const { addToCart } = useCart();
-  const [status, setStatus] = useState("idle"); // idle | loading | added | error
+  const { isInWishlist, toggleWishlist } = useWishlist();
+  const [status, setStatus] = useState("idle");
+  const [wishlistLoading, setWishlistLoading] = useState(false);
 
-  const handleAddToCart = async () => {
+  const inWishlist = isInWishlist(product._id);
+
+  const handleAddToCart = async (e) => {
+    e.preventDefault(); // stop the click from also triggering the Link navigation
     setStatus("loading");
     try {
       await addToCart(product._id, 1);
@@ -19,8 +27,23 @@ function ProductCard({ product }) {
     }
   };
 
+  const handleToggleWishlist = async (e) => {
+    e.preventDefault(); // same here — don't navigate when tapping the heart
+    setWishlistLoading(true);
+    try {
+      await toggleWishlist(product._id);
+    } catch (error) {
+      console.error("Wishlist toggle failed:", error);
+    } finally {
+      setWishlistLoading(false);
+    }
+  };
+
   return (
-    <div className="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300">
+    <Link
+      to={`/products/${product._id}`}
+      className="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 block"
+    >
 
       {/* Image */}
       <div className="relative overflow-hidden">
@@ -30,6 +53,18 @@ function ProductCard({ product }) {
           alt={product.name}
           className="w-full h-36 sm:h-52 lg:h-64 object-cover transition duration-500 group-hover:scale-105"
         />
+
+        {/* Wishlist Heart */}
+        <button
+          onClick={handleToggleWishlist}
+          disabled={wishlistLoading}
+          className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 flex items-center justify-center shadow hover:scale-110 transition disabled:opacity-60"
+        >
+          <FiHeart
+            size={15}
+            className={inWishlist ? "fill-red-500 text-red-500" : "text-gray-500"}
+          />
+        </button>
 
         {/* Hover Button */}
         <div
@@ -80,7 +115,7 @@ function ProductCard({ product }) {
 
       </div>
 
-    </div>
+    </Link>
   );
 }
 
