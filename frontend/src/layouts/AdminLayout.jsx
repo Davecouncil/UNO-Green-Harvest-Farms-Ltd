@@ -14,7 +14,7 @@ export default function AdminLayout() {
 
   return (
     <div className="min-h-screen flex">
-      <aside className="w-60 bg-white border-r border-gray-200 flex flex-col">
+      <aside className="w-60 bg-white border-r border-gray-200 flex flex-col sticky top-0 h-screen">
         <div className="px-6 py-4 border-b border-gray-100">
             <img src="/images/logo1.png" alt="Logo" 
             className=" h-15 w-19 "
@@ -25,13 +25,13 @@ export default function AdminLayout() {
           Management
         </p>
 
-        <nav className="flex-1 px-3 space-y-1">
+        <nav className="flex-1 px-3 space-y-1 ">
           {navItems.map((item) => (
             <NavLink
               key={item.path}
               to={item.path}
               className={({ isActive }) =>
-                `flex items-center gap-3 px-3 py-2.5 sticky rounded-lg text-sm font-medium transition ${
+                `flex items-center gap-3 px-3 py-2.5  rounded-lg text-sm font-medium transition ${
                   isActive
                     ? "bg-[#2D7A0F] text-white"
                     : "text-gray-600 hover:bg-gray-50"
