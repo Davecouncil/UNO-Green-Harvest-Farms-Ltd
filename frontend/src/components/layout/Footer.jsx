@@ -3,7 +3,6 @@ import {
   FiInstagram,
   FiTwitter,
   FiYoutube,
-  FiMapPin,
   FiPhone,
   FiMail,
 } from "react-icons/fi";
@@ -16,7 +15,7 @@ function Footer() {
     { icon: FiInstagram, href: "#" },
     { icon: FiTwitter, href: "#" },
     { icon: FiYoutube, href: "#" },
-    { icon: RiPinterestFill, href: "#" },
+    { icon: FiMail, href: "#" },
   ];
 
   return (

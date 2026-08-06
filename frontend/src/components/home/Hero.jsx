@@ -16,7 +16,7 @@ function Hero() {
         <div className="max-w-xl">
 
           {/* Badge */}
-          <span className="inline-block fade-up delay-300 bg-[#CD9707] text-white px-4 py-1.5 rounded-full text-xs font-semibold mb-4">
+          <span className="inline-block fade-up delay-300 bg-[#0d860d] text-white px-4 py-1.5 rounded-full text-xs font-semibold mb-4">
             FARM FRESH SINCE 1972
           </span>
 
@@ -24,7 +24,7 @@ function Hero() {
           <h1 className="text-4xl md:text-5xl font-dm leading-tight text-white fade-up delay-300">
             From Our Fields
             <br />
-            <span className="text-[#dcb458]">
+            <span className="text-[#0d860d]">
               To Your Table
             </span>
           </h1>
@@ -39,7 +39,7 @@ function Hero() {
           {/* Buttons */}
           <div className="mt-6 fade-up delay-700 flex gap-4">
 
-            <button className="flex items-center gap-2 bg-[#dcb458] hover:bg-[#c79f2d] px-6 py-2.5 text-sm rounded-full text-white font-semibold transition">
+            <button className="flex items-center gap-2 bg-[#0d860d] hover:bg-[#c79f2d] px-6 py-2.5 text-sm rounded-full text-white font-semibold transition">
               Shop Now
               <FiArrowRight />
             </button>

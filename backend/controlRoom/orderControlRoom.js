@@ -1,9 +1,7 @@
 const mongoose = require("mongoose");
 const Order = require("../models/orderModel");
 
-// ==========================
-// Create Order
-// ==========================
+
 exports.createOrder = async (req, res) => {
 
     try {
@@ -59,10 +57,6 @@ exports.createOrder = async (req, res) => {
     }
 
 };
-
-// ==========================
-// Get User Orders
-// ==========================
 exports.getOrders = async (req, res) => {
 
     try {
@@ -87,10 +81,6 @@ exports.getOrders = async (req, res) => {
     }
 
 };
-
-// ==========================
-// Get Single Order
-// ==========================
 exports.getOrderById = async (req, res) => {
 
     try {

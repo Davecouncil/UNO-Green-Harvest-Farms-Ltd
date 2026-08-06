@@ -14,7 +14,7 @@ function ProductCard({ product }) {
   const inWishlist = isInWishlist(product._id);
 
   const handleAddToCart = async (e) => {
-    e.preventDefault(); // stop the click from also triggering the Link navigation
+    e.preventDefault(); 
     setStatus("loading");
     try {
       await addToCart(product._id, 1);
@@ -28,7 +28,7 @@ function ProductCard({ product }) {
   };
 
   const handleToggleWishlist = async (e) => {
-    e.preventDefault(); // same here — don't navigate when tapping the heart
+    e.preventDefault(); 
     setWishlistLoading(true);
     try {
       await toggleWishlist(product._id);
@@ -106,7 +106,7 @@ function ProductCard({ product }) {
 
         <div className="mt-3">
           <span className="text-base sm:text-xl font-bold text-black">
-            ${product.price}
+            {product.price}
           </span>
           <span className="text-xs text-gray-400 ml-1">
             {product.unit}

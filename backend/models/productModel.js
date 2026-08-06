@@ -1,21 +1,3 @@
-// const mongoose = require('mongoose');
-
-// const productSchema = new mongoose.Schema(
-//   {
-//     sellerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-//     title: { type: String, required: true },
-//     description: { type: String, required: true },
-//     price: { type: Number, required: true, min: 0 },
-//     category: { type: String, required: true },
-//     stock: { type: Number, required: true, min: 0, default: 0 },
-//     images: [{ type: String }],
-//   },
-//   { timestamps: true }
-// );
-
-// const Product = mongoose.model('Product', productSchema);
-
-// module.exports = Product;
 const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema(
@@ -37,6 +19,11 @@ const productSchema = new mongoose.Schema(
             min: 0,
         },
 
+        originalPrice: {
+            type: Number,
+            min: 0,
+        },
+
         category: {
             type: String,
             required: [true, "Product category is required"],
@@ -53,10 +40,27 @@ const productSchema = new mongoose.Schema(
             type: String,
             default: "",
         },
+
         unit: {
-    type: String,
-    default: "kg",
-}
+            type: String,
+            default: "kg",
+        },
+
+        badge: {
+            type: String,
+            default: "None",
+        },
+
+        origin: {
+            type: String,
+            default: "",
+        },
+
+        certifications: [
+            {
+                type: String,
+            },
+        ],
     },
     {
         timestamps: true,

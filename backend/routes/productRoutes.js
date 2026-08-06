@@ -1,17 +1,18 @@
 const express = require("express");
 const router = express.Router();
 
-// const productControlRoom = require("../controlRoom/productControlRoom");
 const productControlRoom = require("../controlRoom/productControlRoom");
+const { protect } = require("../middleware/authMiddleware");
+const { sellerOnly } = require("../middleware/sellerMiddleware");
 
-router.post("/", productControlRoom.createProduct);
+router.post("/", protect, sellerOnly, productControlRoom.createProduct);
 
 router.get("/", productControlRoom.getProducts);
 
 router.get("/:id", productControlRoom.getProductById);
 
-router.put("/:id", productControlRoom.updateProduct);
+router.put("/:id", protect, sellerOnly, productControlRoom.updateProduct);
 
-router.delete("/:id", productControlRoom.deleteProduct);
+router.delete("/:id", protect, sellerOnly, productControlRoom.deleteProduct);
 
 module.exports = router;

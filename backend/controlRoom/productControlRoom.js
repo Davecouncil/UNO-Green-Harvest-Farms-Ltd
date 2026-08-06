@@ -10,9 +10,14 @@ exports.createProduct = async (req, res) => {
             name,
             description,
             price,
+            originalPrice,
             category,
             stock,
-            image
+            image,
+            unit,
+            badge,
+            origin,
+            certifications
         } = req.body;
 
         if (!name || !description || !price || !category) {
@@ -26,9 +31,14 @@ exports.createProduct = async (req, res) => {
             name,
             description,
             price,
+            originalPrice,
             category,
             stock,
-            image
+            image,
+            unit,
+            badge,
+            origin,
+            certifications
         });
 
         res.status(201).json({
@@ -150,13 +160,13 @@ exports.updateProduct = async (req, res) => {
         });
     }
 };
+
 // ==========================
 // Delete Product
 // ==========================
 exports.deleteProduct = async (req, res) => {
 
     try {
-
 
         if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
             return res.status(400).json({

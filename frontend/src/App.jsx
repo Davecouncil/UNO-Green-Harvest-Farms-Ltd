@@ -1,6 +1,10 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 
-import Navbar from "./components/layout/Navbar";
+import ScrollToTop from "./components/ScrollToTop";
+import RequireSeller from "./components/RequireSeller";
+
+import Navbar from "./components/layout/NavBar";
+import AdminLayout from "./layouts/AdminLayout";
 
 import Home from "./pages/Home";
 import Products from "./pages/Products";
@@ -23,14 +27,26 @@ import Profile from "./pages/Profile";
 
 import NotFound from "./pages/NotFound";
 
+import AdminLogin from "./admin/AdminLogin";
 import Footer from "./components/layout/Footer";
+
+import AdminDashboard from "./admin/Dashboard";
+import AddProduct from "./admin/AddProduct";
+import Inventory from "./admin/Inventory";
+import Users from "./admin/Users";
+import OrderAdmin from "./admin/Orders";
+import Analytics from "./admin/Analytics";
+import EditProduct from "./admin/EditProduct";
 
 function App() {
   const location = useLocation();
-  const hideNavAndFooter = ["/login", "/signup"].includes(location.pathname);
+  const isAdminRoute = location.pathname.startsWith("/admin");
+  const hideNavAndFooter = ["/login", "/signup"].includes(location.pathname) || isAdminRoute;
 
   return (
     <>
+      <ScrollToTop />
+
       {!hideNavAndFooter && <Navbar />}
 
       <Routes>
@@ -54,6 +70,25 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />} />
+
+        <Route path="/admin/login" element={<AdminLogin />} />
+
+        <Route
+          path="/admin"
+          element={
+            <RequireSeller>
+              <AdminLayout />
+            </RequireSeller>
+          }
+        >
+          <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="add-product" element={<AddProduct />} />
+          <Route path="inventory" element={<Inventory />} />
+          <Route path="users" element={<Users />} />
+          <Route path="orders" element={<OrderAdmin />} />
+          <Route path="analytics" element={<Analytics />} />
+          <Route path="edit-product" element={<EditProduct />} />
+        </Route>
 
         <Route path="*" element={<NotFound />} />
       </Routes>
