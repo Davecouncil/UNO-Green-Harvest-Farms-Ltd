@@ -5,7 +5,7 @@ console.log("DNS:", dns.getServers());
 
 const express = require("express");
 const mongoose = require("mongoose");
-const cors = require("cors");   // <-- Add this
+const cors = require("cors");
 const path = require("path");
 
 require("dotenv").config({
@@ -26,7 +26,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/auth", require("./routes/authRoutes"));
-app.use("/api/user", require("./routes/userRoutes"));
+app.use("/api/users", require("./routes/userRoutes"));
 app.use("/api/products", require("./routes/productRoutes"));
 app.use("/api/cart", require("./routes/cartRoutes"));
 app.use("/api/wishlist", require("./routes/wishlistRoutes"));

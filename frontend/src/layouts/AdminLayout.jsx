@@ -9,7 +9,6 @@ export default function AdminLayout() {
     {name: "Users", path: "/admin/users", icon: <FiUser />},
     {name: "Orders", path: "/admin/orders", icon: <FiShoppingCart />},
     {name: "Analytics", path: "/admin/analytics", icon: <FiBarChart />},
-    {name: "Edit Products", path: "/admin/edit-product", icon: <FiBox/>}
   ];
 
   return (

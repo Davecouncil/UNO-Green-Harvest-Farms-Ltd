@@ -106,7 +106,7 @@ function ProductCard({ product }) {
 
         <div className="mt-3">
           <span className="text-base sm:text-xl font-bold text-black">
-            {product.price}
+            ₦{product.price}
           </span>
           <span className="text-xs text-gray-400 ml-1">
             {product.unit}

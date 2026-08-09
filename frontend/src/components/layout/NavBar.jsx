@@ -17,12 +17,12 @@ const Navbar = () => {
   const location = useLocation();
 
   const isHome = location.pathname === "/";
-  const solid = isMobile || scrolled || menuOpen || !isHome; // always solid on mobile
+  const solid = isMobile || scrolled || menuOpen || !isHome; 
 
   console.log("pathname:", location.pathname, "isHome:", isHome, "solid:", solid);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 1024); // matches your lg: breakpoint
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024); 
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);

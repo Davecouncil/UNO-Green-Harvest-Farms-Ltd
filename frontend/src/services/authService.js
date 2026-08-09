@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:4878/api/auth";
+const API = "https://uno-green-harvest-farms-ltd.onrender.com/api/auth";
 
 export const signup = async ({ userName, email, password, phone, role }) => {
   const { data } = await axios.post(`${API}/signup`, {

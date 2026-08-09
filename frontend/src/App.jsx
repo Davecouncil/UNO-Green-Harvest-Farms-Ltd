@@ -87,7 +87,7 @@ function App() {
           <Route path="users" element={<Users />} />
           <Route path="orders" element={<OrderAdmin />} />
           <Route path="analytics" element={<Analytics />} />
-          <Route path="edit-product" element={<EditProduct />} />
+          <Route path="edit-product/:id" element={<EditProduct />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />

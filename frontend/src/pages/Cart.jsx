@@ -101,7 +101,7 @@ export default function Cart() {
                       </div>
 
                       <p className="font-semibold text-gray-900 w-16 text-right">
-                        ${(product.price * item.quantity).toFixed(2)}
+                        ₦{(product.price * item.quantity).toFixed(2)}
                       </p>
 
                       <button
@@ -127,7 +127,7 @@ export default function Cart() {
 
                 <div className="flex items-center justify-between text-sm text-gray-300 mb-2">
                   <span>Subtotal ({itemCount} items)</span>
-                  <span>${subtotal.toFixed(2)}</span>
+                  <span>₦{subtotal.toFixed(2)}</span>
                 </div>
                 <p className="text-xs text-gray-400 mb-4">Shipping & taxes calculated at checkout</p>
 

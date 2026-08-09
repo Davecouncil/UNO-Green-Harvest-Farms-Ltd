@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:4878/api/cart";
+const API = "https://uno-green-harvest-farms-ltd.onrender.com/api/cart";
 
 const authHeader = (token) => ({
   headers: { Authorization: `Bearer ${token}` },

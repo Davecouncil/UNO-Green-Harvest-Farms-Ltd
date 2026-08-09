@@ -15,4 +15,6 @@ router.put("/:id", protect, sellerOnly, productControlRoom.updateProduct);
 
 router.delete("/:id", protect, sellerOnly, productControlRoom.deleteProduct);
 
+// router.get("/categories/list", productControlRoom.getCategories);
+
 module.exports = router;

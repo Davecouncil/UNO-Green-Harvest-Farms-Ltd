@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const BASE = "http://localhost:4878/api";
+const BASE = "https://uno-green-harvest-farms-ltd.onrender.com/api";
 
 // change these each time you run it, since email must be unique
 const testUser = {
