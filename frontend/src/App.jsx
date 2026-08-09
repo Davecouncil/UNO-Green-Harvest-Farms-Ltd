@@ -2,6 +2,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 import ScrollToTop from "./components/ScrollToTop";
 import RequireSeller from "./components/RequireSeller";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 import Navbar from "./components/layout/NavBar";
 import AdminLayout from "./layouts/AdminLayout";
@@ -50,27 +51,30 @@ function App() {
       {!hideNavAndFooter && <Navbar />}
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/products/:id" element={<ProductDetails />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
 
-        <Route path="/farms" element={<Farms />} />
-        <Route path="/smart-farming" element={<SmartFarming />} />
-        <Route path="/sustainability" element={<Sustainability />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+          <Route path="/farms" element={<Farms />} />
+          <Route path="/smart-farming" element={<SmartFarming />} />
+          <Route path="/sustainability" element={<Sustainability />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
 
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/checkout" element={<Checkout />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/checkout" element={<Checkout />} />
 
-        <Route path="/orders" element={<Orders />} />
-        <Route path="/orders/:id" element={<OrderDetails />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/orders/:id" element={<OrderDetails />} />
 
+          <Route path="/profile" element={<Profile />} />
+        </Route>
+
+        {/* These stay OUTSIDE ProtectedRoute — must be reachable without login */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/profile" element={<Profile />} />
-
         <Route path="/admin/login" element={<AdminLogin />} />
 
         <Route
