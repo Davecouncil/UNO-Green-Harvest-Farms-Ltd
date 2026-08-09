@@ -17,7 +17,7 @@ const app = express();
 // CORS Middleware
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173", "https://uno-green-harvest.netlify.app"],
     credentials: true,
   })
 );
