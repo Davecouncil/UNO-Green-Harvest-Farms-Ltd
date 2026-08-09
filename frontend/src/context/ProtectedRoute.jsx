@@ -7,7 +7,7 @@ const ProtectedRoute = () => {
 
   if (loading) return null;
 
-  if (!user) return <Navigate to="/login" replace />;
+  if (!user) return <Navigate to="/signup" replace />;
 
   return <Outlet />;
 };
