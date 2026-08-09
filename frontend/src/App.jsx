@@ -2,7 +2,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 import ScrollToTop from "./components/ScrollToTop";
 import RequireSeller from "./components/RequireSeller";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./context/ProtectedRoute";
 
 import Navbar from "./components/layout/NavBar";
 import AdminLayout from "./layouts/AdminLayout";
