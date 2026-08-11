@@ -1,34 +1,34 @@
 import PageHero from "../components/ui/PageHero";
 
-const farms = [
-  {
-    name: "Green Valley Farm",
-    location: "Central California",
-    acres: "1,200 acres",
-    produce: "Vegetables, Dairy, Livestock",
-    image: "/images/green-valley-farm.png",
-  },
-  {
-    name: "Meadowbrook Farm",
-    location: "Willamette Valley, Oregon",
-    acres: "800 acres",
-    produce: "Organic Vegetables, Apiary, Poultry",
-    image: "/images/meadowbrook-farm.png",
-  },
-  {
-    name: "Sunrise Orchard",
-    location: "Southern California",
-    acres: "400 acres",
-    produce: "Fruits, Nuts, Berries",
-    image: "/images/sunrise-orchard.png",
-  },
-];
+// const farms = [
+//   {
+//     name: "Green Valley Farm",
+//     location: "Central California",
+//     acres: "1,200 acres",
+//     produce: "Vegetables, Dairy, Livestock",
+//     image: "/images/green-valley-farm.png",
+//   },
+//   {
+//     name: "Meadowbrook Farm",
+//     location: "Willamette Valley, Oregon",
+//     acres: "800 acres",
+//     produce: "Organic Vegetables, Apiary, Poultry",
+//     image: "/images/meadowbrook-farm.png",
+//   },
+//   {
+//     name: "Sunrise Orchard",
+//     location: "Southern California",
+//     acres: "400 acres",
+//     produce: "Fruits, Nuts, Berries",
+//     image: "/images/sunrise-orchard.png",
+//   },
+// ];
 
 const galleryImages = [
-  "/images/farm-life-1.png",
-  "/images/farm-life-2.png",
-  "/images/farm-life-3.png",
-  "/images/farm-life-4.png",
+  "/images/farm1.png",
+  "/images/farm2.png",
+  "/images/farm3.png",
+  "/images/farm4.png",
 ];
 
 export default function Farms() {
@@ -37,22 +37,23 @@ export default function Farms() {
       <PageHero
         badge="Our Land, Our Legacy"
         title="Our Farms"
-        description="Three generations of sustainable farming across 2,400 acres of fertile land. Discover the places where your food comes from."
+        // description="Three generations of sustainable farming across 2,400 acres of fertile land. Discover the places where your food comes from."
         bgImage="/images/farm-spot.png"
       />
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16 grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <p className="text-[#2D7A0F] text-xs font-bold tracking-wider uppercase mb-3">
-            Our Story
+            Our Farms
           </p>
 
           <h2 className="font-dm text-3xl sm:text-4xl text-gray-900 mb-6">
-            Three Generations of Stewardship
+            {/* Harvesting the future */}
+            Where innovation meets agriculture 
           </h2>
 
           <div className="space-y-4 text-gray-600 text-sm sm:text-base leading-relaxed">
-            <p>
+            {/* <p>
               In 1972, Eduardo and Maria Vasquez purchased 80 acres of farmland in
               California's fertile Green Valley with a simple dream: to grow food
               the way nature intended. What began as a small family operation has
@@ -74,6 +75,24 @@ export default function Farms() {
               Green Harvest Farms Ltd., you are not just buying food — you are
               supporting a vision of agriculture that nourishes both people and
               planet.
+            </p> */}
+
+            <p>
+              UNO Green Harvest Farms Ltd. is a proposed Nigerian agribusiness dedicated to transforming
+agriculture through innovation, sustainability, and technology. The company aims to establish a large-
+scale smart industrial farm that combines crop production, livestock farming, plantation agriculture,
+greenhouse cultivation, and digital technologies to improve food security, create employment
+opportunities, and contribute to Nigeria's economic development.
+</p><p>
+The farm will integrate Artificial Intelligence (AI), Internet of Things (IoT), drones, renewable energy,
+precision agriculture, cybersecurity, and data-driven decision-making to maximize productivity while
+minimizing environmental impact.
+Initially, the company will focus on crop farming, poultry production, goat farming, greenhouse
+cultivation, palm plantations, cocoa farming, fruit orchards, plantain cultivation, and the establishment
+of economically valuable tree plantations such as Ogbono and Dabino.
+In the long term, UNO Green Harvest Farms Ltd. aims to become one of Africa's leading smart
+agricultural enterprises by producing high-quality food products, supporting agricultural research,
+empowering local communities, and exporting premium agricultural products to international markets.
             </p>
           </div>
         </div>
@@ -87,13 +106,13 @@ export default function Farms() {
         </div>
       </section>
 
-      <section className="bg-[#f3f6ee] py-16 px-4 sm:px-6">
+      {/* <section className="bg-[#f3f6ee] py-16 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <p className="text-[#dcb458] text-xs font-bold tracking-wider uppercase text-center mb-3">
             Our Locations
           </p>
           <h2 className="font-dm text-3xl sm:text-4xl text-gray-900 text-center mb-12">
-            Three Farms, One Mission
+            One Farms,Three Mission
           </h2>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -118,14 +137,34 @@ export default function Farms() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+      {/* <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
         <p className="text-[#2D7A0F] text-xs font-bold tracking-wider uppercase text-center mb-3">
           Behind the Scenes
         </p>
         <h2 className="font-dm text-3xl sm:text-4xl text-gray-900 text-center mb-12">
           Life on the Farm
+        </h2>
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {galleryImages.map((src, index) => (
+            <div key={index} className="rounded-xl overflow-hidden aspect-square">
+              <img
+                src={src}
+                alt={`Life on the farm ${index + 1}`}
+                className="w-full h-full object-cover hover:scale-105 transition duration-300"
+              />
+            </div>
+          ))}
+        </div>
+      </section> */}
+            <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+        <p className="text-[#2D7A0F] text-xs font-bold tracking-wider uppercase text-center mb-3">
+          Behind the Scenes
+        </p>
+        <h2 className="font-dm text-3xl sm:text-4xl text-gray-900 text-center mb-12">
+          The Farm
         </h2>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
