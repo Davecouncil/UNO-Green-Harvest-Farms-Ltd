@@ -8,6 +8,9 @@ import {
   FiX,
 } from "react-icons/fi";
 import { useCart } from "../../hooks/useCart";
+import{useAuth} from "../../hooks/useAuth"
+
+// const {user} = useAuth()
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -15,6 +18,8 @@ const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
   const { itemCount } = useCart();
   const location = useLocation();
+  const {user} = useAuth()
+
 
   const isHome = location.pathname === "/";
   const solid = isMobile || scrolled || menuOpen || !isHome; 
@@ -102,6 +107,14 @@ const Navbar = () => {
           >
             <FiSearch />
           </button> */}
+          {!user && (
+            <NavLink 
+            to="/login"
+            className={`text-sm font-semibold hover:text-[#dcb458] transition ${solid? "text-gray-800":"text-white"}`}
+            >
+              Login
+            </NavLink>
+          )}
 
           <NavLink
             to="/profile"

@@ -2,7 +2,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 import ScrollToTop from "./components/ScrollToTop";
 import RequireSeller from "./components/RequireSeller";
-import ProtectedRoute from "./context/ProtectedRoute";
+// import ProtectedRoute from "./context/ProtectedRoute";
 
 import Navbar from "./components/layout/NavBar";
 import AdminLayout from "./layouts/AdminLayout";
@@ -51,7 +51,7 @@ function App() {
       {!hideNavAndFooter && <Navbar />}
 
       <Routes>
-        <Route element={<ProtectedRoute />}>
+        {/* <Route element={<ProtectedRoute />}> */}
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductDetails />} />
@@ -70,7 +70,7 @@ function App() {
           <Route path="/orders/:id" element={<OrderDetails />} />
 
           <Route path="/profile" element={<Profile />} />
-        </Route>
+        {/* </Route> */}
 
         {/* These stay OUTSIDE ProtectedRoute — must be reachable without login */}
         <Route path="/login" element={<Login />} />
