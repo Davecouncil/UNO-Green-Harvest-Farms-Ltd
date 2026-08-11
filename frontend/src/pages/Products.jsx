@@ -102,7 +102,7 @@ function Products() {
       {/* Grid */}
       {loading ? (
         // <p className="text-gray-500 text-sm">Loading products...</p>
-        <div className="flex justify-center items-center h-36 py-20"> <Loader/></div>
+        <div className="flex justify-center items-center h-20 py-20"> <Loader/></div>
       ) : filteredProducts.length === 0 ? (
         <p className="text-gray-500 text-sm">No products match your search.</p>
       ) : (
