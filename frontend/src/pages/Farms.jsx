@@ -1,29 +1,5 @@
 import PageHero from "../components/ui/PageHero";
 
-// const farms = [
-//   {
-//     name: "Green Valley Farm",
-//     location: "Central California",
-//     acres: "1,200 acres",
-//     produce: "Vegetables, Dairy, Livestock",
-//     image: "/images/green-valley-farm.png",
-//   },
-//   {
-//     name: "Meadowbrook Farm",
-//     location: "Willamette Valley, Oregon",
-//     acres: "800 acres",
-//     produce: "Organic Vegetables, Apiary, Poultry",
-//     image: "/images/meadowbrook-farm.png",
-//   },
-//   {
-//     name: "Sunrise Orchard",
-//     location: "Southern California",
-//     acres: "400 acres",
-//     produce: "Fruits, Nuts, Berries",
-//     image: "/images/sunrise-orchard.png",
-//   },
-// ];
-
 const galleryImages = [
   "/images/farm1.png",
   "/images/farm2.png",
@@ -99,7 +75,7 @@ empowering local communities, and exporting premium agricultural products to int
 
         <div className="rounded-2xl overflow-hidden">
           <img
-            src="/images/our-story.png"
+            src="/images/3ae08721-03b2-4ab0-8291-a8d614da4f7b.png"
             alt="The Vasquez-Ortega family at their farm"
             className="w-full h-full object-cover"
           />
