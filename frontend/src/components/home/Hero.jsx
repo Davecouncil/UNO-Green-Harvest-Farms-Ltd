@@ -40,7 +40,7 @@ function Hero() {
           {/* Buttons */}
           <div className="mt-6 fade-up delay-700 flex gap-4">
 
-            <Link to="/shop">
+            <Link to="/products">
               <button className="flex items-center gap-2 bg-[#0d860d] hover:bg-[#c79f2d] px-6 py-2.5 text-sm rounded-full text-white font-semibold transition">
                 Shop Now
                 <FiArrowRight />
