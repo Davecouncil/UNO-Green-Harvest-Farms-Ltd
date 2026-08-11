@@ -3,7 +3,7 @@ import { FiSearch } from "react-icons/fi";
 import { getProducts } from "../services/productService";
 import ProductFilter from "../components/product/ProductFilter";
 import ProductGrid from "../components/product/ProductGrid";
-import Loader from "../ui/Loader";
+import Loader from "../components/ui/Loader";
 
 function Products() { 
   const [products, setProducts] = useState([]);
