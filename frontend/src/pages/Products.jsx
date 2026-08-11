@@ -3,8 +3,9 @@ import { FiSearch } from "react-icons/fi";
 import { getProducts } from "../services/productService";
 import ProductFilter from "../components/product/ProductFilter";
 import ProductGrid from "../components/product/ProductGrid";
+import Loader from "../ui/Loader";
 
-function Products() {
+function Products() { 
   const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
@@ -39,7 +40,7 @@ function Products() {
       if (sortBy === "price-low") return a.price - b.price;
       if (sortBy === "price-high") return b.price - a.price;
       if (sortBy === "newest") return new Date(b.createdAt) - new Date(a.createdAt);
-      return 0; // "popular" — no real popularity metric yet, keeps default order
+      return 0;
     });
 
   return (

@@ -93,7 +93,7 @@ function Footer() {
           <ul className="space-y-2 text-sm text-gray-300">
             {[
               "FAQs",
-              "Shipping Info",
+              "Order Info",
               "Returns & Refunds",
               "Privacy Policy",
               "Terms of Service",
