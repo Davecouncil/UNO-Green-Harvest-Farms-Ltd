@@ -30,7 +30,7 @@ const team = [
   },
   {
     image: "/images/team-elena.png",
-    name: "Elena Ortega",
+    name: "Ade bola ",
     role: "Director of Sustainability",
   },
   {
