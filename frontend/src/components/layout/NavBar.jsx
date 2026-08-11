@@ -95,13 +95,13 @@ const Navbar = () => {
         </ul>
 
         <div className="flex items-center gap-3 sm:gap-5 text-lg">
-          <button
+          {/* <button
             className={`hover:text-[#dcb458] transition hover:scale-110 hover:bg-white/10 rounded-full p-2 ${
               solid ? "text-gray-800" : "text-white"
             }`}
           >
             <FiSearch />
-          </button>
+          </button> */}
 
           <NavLink
             to="/profile"

@@ -1,4 +1,5 @@
 import { FiArrowRight } from "react-icons/fi";
+import {Link} from "react-router-dom"
 
 function Hero() {
   return (
@@ -39,14 +40,18 @@ function Hero() {
           {/* Buttons */}
           <div className="mt-6 fade-up delay-700 flex gap-4">
 
-            <button className="flex items-center gap-2 bg-[#0d860d] hover:bg-[#c79f2d] px-6 py-2.5 text-sm rounded-full text-white font-semibold transition">
-              Shop Now
-              <FiArrowRight />
-            </button>
+            <Link to="/shop">
+              <button className="flex items-center gap-2 bg-[#0d860d] hover:bg-[#c79f2d] px-6 py-2.5 text-sm rounded-full text-white font-semibold transition">
+                Shop Now
+                <FiArrowRight />
+              </button>
+            </Link>
 
-            <button className="border border-white text-white hover:bg-white hover:text-black px-6 py-2.5 text-sm rounded-full font-semibold transition">
-              Learn More
-            </button>
+            <Link to="/about">
+              <button className="border border-white text-white hover:bg-white hover:text-black px-6 py-2.5 text-sm rounded-full font-semibold transition">
+                Learn More
+              </button>
+            </Link>
 
           </div>
 
