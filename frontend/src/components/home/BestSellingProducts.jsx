@@ -2,7 +2,6 @@ import { IoIosArrowDropright } from "react-icons/io";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Loader from "../ui/Loader";
-
 import ProductFilter from "../product/ProductFilter";
 import ProductGrid from "../product/ProductGrid";
 
@@ -43,7 +42,7 @@ function BestSellingProducts({ products, isLoading}) {
 
       </div>
       {isLoading ? (
-        <div className="flex justify-center items-center h-64 py-20"> <Loader/></div>
+        <div className="flex justify-center items-center h-36 py-20"> <Loader/></div>
       ) : (
         <>
           <ProductFilter
