@@ -3,24 +3,54 @@ import FeatureGrid from "../components/ui/FeatureGrid";
 import { Heart, Users, Globe } from "lucide-react";
 
 const values = [
-  {
-    icon: Heart,
-    title: "Health First",
-    description:
-      "We grow food that nourishes bodies and delights taste buds. No synthetic pesticides, no GMOs, no shortcuts — just pure, wholesome produce packed with nutrients.",
-  },
-  {
-    icon: Users,
-    title: "Community Centered",
-    description:
-      "We pay fair wages, support local food banks, and partner with schools to teach children about farming. A thriving community grows from healthy food systems.",
-  },
+  // {
+  //   icon: Heart,
+  //   title: "Health First",
+  //   description:
+  //     "We grow food that nourishes bodies and delights taste buds. No synthetic pesticides, no GMOs, no shortcuts — just pure, wholesome produce packed with nutrients.",
+  // },
+  // {
+  //   icon: Users,
+  //   title: "Community Centered",
+  //   description:
+  //     "We pay fair wages, support local food banks, and partner with schools to teach children about farming. A thriving community grows from healthy food systems.",
+  // },
   {
     icon: Globe,
     title: "Planet Positive",
     description:
       "Every farming decision considers its environmental impact. We are committed to leaving the land healthier than we found it for generations to come.",
   },
+  {
+    icon: Globe,
+    title: "Innovation",
+    description: "We embrace modern technologies that improve agricultural productivity and efficiency."
+  },
+    {
+    icon: Globe,
+    title: "Integrity",
+    description: "We operate with honesty, transparency, and accountability."
+  },
+    {
+    icon: Globe,
+    title: "Sustainability",
+    description: "We protect natural resources while producing healthy food for present and future generations."
+  },
+    {
+    icon: Globe,
+    title: "Excellence",
+    description: "We strive for the highest standards in agricultural production and customer satisfaction."
+  },
+    {
+    icon: Globe,
+    title: "Community Development",
+    description: "We believe agriculture should improve the lives of farmers, employees, and surrounding communities. "
+  },
+    {
+    icon: Globe,
+    title: "Environmental Responsibility",
+    description: "We are committed to environmentally friendly farming practices and renewable energy solutions."
+  }
 ];
 const team = [
   {
@@ -96,7 +126,7 @@ function About() {
         <img
           src="/images/hands-soil-seedling.png"
           alt="Hands holding soil with a young seedling"
-          className="w-full h-[440px] object-cover rounded-2xl"
+          className="w-full h-110 object-cover rounded-2xl"
         />
 
       </section>
