@@ -43,7 +43,7 @@ function BestSellingProducts({ products, isLoading}) {
 
       </div>
       {isLoading ? (
-        <div className="flex justify-center items-center h-64 py-20"> <Loader/><div/>
+        <div className="flex justify-center items-center h-64 py-20"> <Loader/></div>
       ) : (
         <>
           <ProductFilter
