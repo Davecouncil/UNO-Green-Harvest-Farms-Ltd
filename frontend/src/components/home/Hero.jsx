@@ -6,7 +6,7 @@ function Hero() {
     <section
       className="relative font-geist h-screen bg-cover bg-center"
       style={{
-        backgroundImage: "url('/images/hero-bg.webp')",
+        backgroundImage: "url('/images/hero-bg.jpeg')",
       }}
     >
       {/* Dark Overlay */}
