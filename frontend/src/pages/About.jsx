@@ -83,7 +83,7 @@ function About() {
         badge="Our Story Since 1972"
         title="About Us"
         description="A family legacy of farming, a passion for quality, and an unwavering commitment to doing what is right for the land and our community."
-        bgImage="/images/farm-house.png"
+        bgImage="/images/farm-house.webp"
       />
 
       {/* Our Mission */}
