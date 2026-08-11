@@ -11,12 +11,13 @@ import Reveal from "../components/Reveal";
 
 
 function Home() {
-  const [products, setProducts] = useState([]);
-
+const [products, setProducts] = useState([]);
+const [isLoading, setIsLoading] = useState(true);
 useEffect(() => {
   const fetchProducts = async () => {
     const data = await getProducts();
     setProducts(data);
+    setIsLoading(false);
   };
 
   fetchProducts();
@@ -24,7 +25,7 @@ useEffect(() => {
   return (
     <>
     <Reveal><Hero /></Reveal>
-      <Reveal> <BestSellingProducts products={products} /></Reveal>
+      <Reveal> <BestSellingProducts products={products} isLoading={isLoading} /></Reveal>
       <Reveal><ProductCategories products={products}/></Reveal>
       <Reveal><SmartFarming/></Reveal>
       <Reveal><Sustainability/></Reveal>

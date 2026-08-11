@@ -1,11 +1,12 @@
 import { IoIosArrowDropright } from "react-icons/io";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Loader from "../ui/Loader";
 
 import ProductFilter from "../product/ProductFilter";
 import ProductGrid from "../product/ProductGrid";
 
-function BestSellingProducts({ products }) {
+function BestSellingProducts({ products, isLoading}) {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const filteredProducts =
@@ -41,14 +42,19 @@ function BestSellingProducts({ products }) {
         </Link>
 
       </div>
+      {isLoading ? (
+        <div classname="flex justify-center items-center h-64 py-20"> <Loader/><div/>
+      ) : (
+        <>
+          <ProductFilter
+            categories={categories}
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+          />
 
-      <ProductFilter
-        categories={categories}
-        selectedCategory={selectedCategory}
-        setSelectedCategory={setSelectedCategory}
-      />
-
-      <ProductGrid products={filteredProducts} />
+          <ProductGrid products={filteredProducts} />
+        </>
+      )}
 
     </section>
   );
