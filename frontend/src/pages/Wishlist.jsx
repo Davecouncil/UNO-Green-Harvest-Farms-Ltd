@@ -88,36 +88,19 @@ function WishlistSidebarItem({ product }) {
   );
 }
 
-function WishlistSidebar() {
-  const [isOpen, setIsOpen] = useState(false);
+function WishlistSidebar({ isOpen, onClose }) {
   const { wishlist } = useWishlist();
   const products = wishlist?.products || [];
 
   return (
     <>
-      {/* Floating toggle button — remove/move this if you already have a wishlist icon elsewhere (e.g. Navbar) */}
-      <button
-        onClick={() => setIsOpen(true)}
-        className="fixed right-5 top-1/2 -translate-y-1/2 z-30 bg-white border border-gray-200 shadow-md rounded-full p-3 hover:scale-105 transition"
-        aria-label="Open wishlist"
-      >
-        <FiHeart className="text-red-500" size={18} />
-        {products.length > 0 && (
-          <span className="absolute -top-1 -right-1 bg-[#2D7A0F] text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">
-            {products.length}
-          </span>
-        )}
-      </button>
-
-      {/* Dark overlay behind the drawer */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black/40 z-40"
-          onClick={() => setIsOpen(false)}
+          onClick={onClose}
         />
       )}
 
-      {/* Sliding drawer */}
       <div
         className={`fixed top-0 right-0 h-screen w-full sm:w-96 bg-white z-50
           shadow-xl transition-transform duration-300
@@ -129,7 +112,7 @@ function WishlistSidebar() {
             <div className="flex items-center gap-3">
               <span className="text-xs text-gray-400">{products.length}</span>
               <button
-                onClick={() => setIsOpen(false)}
+                onClick={onClose}
                 aria-label="Close wishlist"
                 className="text-gray-400 hover:text-gray-600 text-xl"
               >
@@ -144,7 +127,7 @@ function WishlistSidebar() {
               <p className="text-xs text-gray-500 mb-4">No items saved yet.</p>
               <Link
                 to="/products"
-                onClick={() => setIsOpen(false)}
+                onClick={onClose}
                 className="inline-block bg-[#dcb458] hover:bg-[#c9a24d] text-black rounded-full px-4 py-2 text-xs font-semibold transition"
               >
                 Browse Products

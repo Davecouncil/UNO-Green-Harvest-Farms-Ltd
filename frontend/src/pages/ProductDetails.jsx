@@ -5,6 +5,8 @@ import { useCart } from "../hooks/useCart";
 import { useWishlist } from "../hooks/useWishlist";
 import { FiHeart, FiMinus, FiPlus, FiMapPin, FiCheckCircle, FiTrash2 } from "react-icons/fi";
 import Button from "../components/ui/Button";
+import Loader from "../components/ui/Loader";
+
 
 function ProductDetails() {
   const { id } = useParams();
@@ -17,7 +19,7 @@ function ProductDetails() {
   const [heartPop, setHeartPop] = useState(false);
   const [cartPop, setCartPop] = useState(false);
 
-  const { addToCart, removeFromCart } = useCart();
+  const { addToCart, removeItem } = useCart();
   const { isInWishlist, toggleWishlist } = useWishlist();
 
   useEffect(() => {
@@ -39,10 +41,9 @@ function ProductDetails() {
 
   const handleCartAction = async () => {
     if (status === "inCart") {
-      // currently in cart -> remove it
       setStatus("removing");
       try {
-        await removeFromCart(product._id);
+        await removeItem(product._id);
         setStatus("idle");
         setCartPop(true);
         setTimeout(() => setCartPop(false), 300);
@@ -82,13 +83,18 @@ function ProductDetails() {
     }
   };
 
-  if (loading) {
-    return (
-      <div className="pt-20 sm:pt-24 max-w-7xl mx-auto px-4 sm:px-6 py-20 text-center text-gray-500 text-sm">
-        Loading product...
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="pt-20 sm:pt-24 max-w-7xl mx-auto px-4 sm:px-6 py-20 text-center text-gray-500 text-sm">
+  //       Loading product...
+  //     </div>
+  //   );
+  // }
+    if (loading) {
+      return (
+        <div className="flex items-center h-screen justify-center "><Loader/></div>
+       )
+    }
 
   if (!product) {
     return (
