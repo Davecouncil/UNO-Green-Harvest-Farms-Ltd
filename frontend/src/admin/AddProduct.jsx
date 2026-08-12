@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { createProduct } from "../services/productService";
 import Button from "../components/ui/Button";
+import Loader from "../components/ui/Loader";
 
 const categories = [
   "Vegetables",
@@ -87,6 +88,12 @@ export default function AddProduct() {
       setLoading(false);
     }
   };
+    if (loading) {
+    // return <p className="text-gray-500 text-sm">Loading dashboard...</p>;
+    return (
+      <div className="flex items-center h-screen justify-center "><Loader/></div>
+     )
+  }
 
   return (
     <div className="max-w-3xl">

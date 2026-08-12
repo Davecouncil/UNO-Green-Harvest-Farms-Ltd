@@ -113,7 +113,11 @@ const Navbar = () => {
             className={`text-sm font-semibold hover:text-[#dcb458] transition ${solid? "text-gray-800":"text-white"}`}
             >
               Login
-            </NavLink>
+            </NavLink>,
+            <NavLink
+            to="/signup"
+             className={`text-sm font-semibold hover:text-[#dcb458] transition ${solid? "text-gray-800":"text-white"}`}
+            > Signup</NavLink>
           )}
 
           <NavLink

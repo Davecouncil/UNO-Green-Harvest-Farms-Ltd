@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 const API = "https://uno-green-harvest-farms-ltd.onrender.com/api/auth";
 
 export const signup = async ({ userName, email, password, phone, role }) => {

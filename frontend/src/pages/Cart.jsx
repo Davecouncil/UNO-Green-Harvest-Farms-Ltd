@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../hooks/useCart";
 import Button from "../components/ui/Button";
-
+import WishlistSidebar from "../pages/Wishlist"
 export default function Cart() {
   const navigate = useNavigate();
   const { cart, itemCount, loading, updateQuantity, removeItem, clearCart } = useCart();
@@ -121,7 +121,10 @@ export default function Cart() {
             </div>
 
             {/* Summary */}
+            <WishlistSidebar />
+
             <div className="lg:col-span-1">
+              
               <div className="bg-[#0f2b0a] text-white rounded-xl p-6 sticky top-32">
                 <h2 className="font-dm text-lg mb-4">Order Summary</h2>
 

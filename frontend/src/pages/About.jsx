@@ -54,22 +54,22 @@ const values = [
 ];
 const team = [
   {
-    image: "/images/team-carlos.png",
+    image: "/images/person1.jpeg",
     name: "Carlos Vasquez-Ortega",
     role: "Founder & Head Farmer",
   },
   {
-    image: "/images/team-elena.png",
-    name: "Ade bola ",
+    image: "/images/person3.jpeg",
+    name: "Ada bola ",
     role: "Director of Sustainability",
   },
   {
-    image: "/images/team-miguel.png",
+    image: "/images/person2.jpeg",
     name: "Miguel Herrera",
     role: "Head of Operations",
   },
   {
-    image: "/images/team-sofia.png",
+    image: "/images/person4.jpeg",
     name: "Sofia Chen",
     role: "Smart Farming Lead",
   },
@@ -124,7 +124,7 @@ function About() {
         </div>
 
         <img
-          src="/images/hands-soil-seedling.png"
+          src="/images/sustain.png"
           alt="Hands holding soil with a young seedling"
           className="w-full h-110 object-cover rounded-2xl"
         />

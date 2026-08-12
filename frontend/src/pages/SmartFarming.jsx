@@ -7,29 +7,29 @@ import { FiCheck } from "react-icons/fi";
 function SmartFarming() {
   const features = [
     {
-      image: "/images/drone-monitoring.png",
+      image: "/images/img-2.jpeg",
       icon: Sprout,
       title: "Drone Crop Monitoring",
       description:
         "Our fleet of agricultural drones equipped with multispectral cameras surveys every acre daily, capturing high-resolution imagery that reveals plant health, soil moisture levels, and early signs of pest pressure — weeks before the human eye can detect issues.",
       stats: [
-        { value: "500+", label: "Acres monitored daily" },
+        { value: "5+", label: "Acres monitored daily" },
         { value: "92%", label: "Early pest detection rate" },
       ],
     },
     {
-      image: "/images/smart-irrigation.png",
+      image: "/images/img-1.jpeg",
       icon: Droplet,
       title: "Smart Irrigation Systems",
       description:
         "Our AI-driven irrigation network uses real-time soil moisture sensors and weather forecasting to deliver exactly the right amount of water to each crop zone. This precision approach has reduced our water consumption by 98% compared to conventional flood irrigation.",
       stats: [
         { value: "98%", label: "Water efficiency" },
-        { value: "1.2M", label: "Gallons saved annually" },
+        { value: "10,000", label: "Gallons saved annually" },
       ],
     },
     {
-      image: "/images/solar-powered.png",
+      image: "/images/solar.jpeg",
       icon: Sun,
       title: "Solar-Powered Operations",
       description:

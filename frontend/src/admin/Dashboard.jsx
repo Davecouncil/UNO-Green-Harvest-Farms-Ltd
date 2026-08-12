@@ -31,8 +31,9 @@ export default function Dashboard() {
   }, []);
 
   if (loading) {
-    // return <p className="text-gray-500 text-sm">Loading dashboard...</p>;
-    return <Loader/>
+    return (
+      <div className="flex items-center h-screen justify-center "><Loader/></div>
+     )
   }
 
   if (error) {

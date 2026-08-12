@@ -4,6 +4,7 @@ import { useAuth } from "../hooks/useAuth";
 import { getProducts, deleteProduct } from "../services/productService";
 import Button from "../components/ui/Button";
 import { FiEdit2, FiTrash2, FiEye, FiSearch } from "react-icons/fi";
+import Loader from "../components/ui/Loader";
 
 export default function Inventory() {
   const { token } = useAuth();
@@ -46,6 +47,9 @@ export default function Inventory() {
       setProducts((prev) => prev.filter((p) => p._id !== id));
     } catch (err) {
       alert("Failed to delete product.");
+      return(
+        <div></div>
+      )
     } finally {
       setDeletingId(null);
     }
@@ -69,7 +73,11 @@ export default function Inventory() {
     });
 
   if (loading) {
-    return <p className="text-gray-500 text-sm">Loading inventory...</p>;
+    return (
+      <div className="flex items-center h-screen justify-center">
+        <Loader />
+      </div>
+    );
   }
 
   if (error) {
@@ -78,7 +86,7 @@ export default function Inventory() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
         <div>
           <h1 className="font-dm text-2xl text-gray-900">Inventory</h1>
           <p className="text-gray-500 text-sm">{products.length} total products</p>
@@ -88,9 +96,9 @@ export default function Inventory() {
         </Button>
       </div>
 
-      {/* Search + Filters */}
-      <div className="flex flex-wrap items-center gap-3 mb-5">
-        <div className="relative flex-1 min-w-[200px]">
+      {/* Search + Filters — stacks vertically on mobile */}
+      <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 mb-5">
+        <div className="relative w-full sm:flex-1 sm:min-w-50">
           <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
           <input
             type="text"
@@ -101,12 +109,12 @@ export default function Inventory() {
           />
         </div>
 
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 overflow-x-auto -mx-1 px-1 sm:mx-0 sm:px-0">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`text-sm font-medium px-4 py-2 rounded-full border transition ${
+              className={`text-sm font-medium px-4 py-2 rounded-full border transition whitespace-nowrap ${
                 activeCategory === cat
                   ? "bg-[#2D7A0F] text-white border-[#2D7A0F]"
                   : "bg-white text-gray-600 border-gray-300 hover:bg-gray-50"
@@ -120,7 +128,7 @@ export default function Inventory() {
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
-          className="border border-gray-300 rounded-full px-4 py-2 text-sm outline-none focus:border-[#2D7A0F] transition"
+          className="w-full sm:w-auto border border-gray-300 rounded-full px-4 py-2 text-sm outline-none focus:border-[#2D7A0F] transition"
         >
           <option value="name">Sort: Name</option>
           <option value="priceLow">Sort: Price (Low to High)</option>
@@ -129,82 +137,85 @@ export default function Inventory() {
         </select>
       </div>
 
+      {/* Table — scrolls horizontally on small screens, hides low-priority columns */}
       <div className="bg-white rounded-2xl overflow-hidden">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="border-b border-gray-100 text-left text-gray-500">
-              <th className="px-5 py-3 font-medium">Product</th>
-              <th className="px-5 py-3 font-medium">Category</th>
-              <th className="px-5 py-3 font-medium">Price</th>
-              <th className="px-5 py-3 font-medium">Stock</th>
-              <th className="px-5 py-3 font-medium">Status</th>
-              <th className="px-5 py-3 font-medium text-right">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredProducts.map((product) => {
-              const status = getStockStatus(product.stock);
-              return (
-                <tr key={product._id} className="border-b border-gray-50 last:border-none">
-                  <td className="px-5 py-3">
-                    <div className="flex items-center gap-3">
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        className="w-10 h-10 object-cover rounded-lg bg-gray-100"
-                      />
-                      <div>
-                        <p className="font-medium text-gray-900">{product.name}</p>
-                        <p className="text-xs text-gray-400">{product.unit}</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm min-w-160">
+            <thead>
+              <tr className="border-b border-gray-100 text-left text-gray-500">
+                <th className="px-5 py-3 font-medium">Product</th>
+                <th className="px-5 py-3 font-medium hidden sm:table-cell">Category</th>
+                <th className="px-5 py-3 font-medium">Price</th>
+                <th className="px-5 py-3 font-medium hidden md:table-cell">Stock</th>
+                <th className="px-5 py-3 font-medium hidden md:table-cell">Status</th>
+                <th className="px-5 py-3 font-medium text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredProducts.map((product) => {
+                const status = getStockStatus(product.stock);
+                return (
+                  <tr key={product._id} className="border-b border-gray-50 last:border-none">
+                    <td className="px-5 py-3">
+                      <div className="flex items-center gap-3">
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          className="w-10 h-10 object-cover rounded-lg bg-gray-100 shrink-0"
+                        />
+                        <div className="min-w-0">
+                          <p className="font-medium text-gray-900 truncate">{product.name}</p>
+                          <p className="text-xs text-gray-400">{product.unit}</p>
+                        </div>
                       </div>
-                    </div>
-                  </td>
-                  <td className="px-5 py-3 text-gray-600">{product.category}</td>
-                  <td className="px-5 py-3 text-gray-900">
-                    ₦{product.price}
-                    {product.originalPrice && (
-                      <span className="text-gray-400 line-through ml-1.5 text-xs">
-                        ₦{product.originalPrice}
+                    </td>
+                    <td className="px-5 py-3 text-gray-600 hidden sm:table-cell">{product.category}</td>
+                    <td className="px-5 py-3 text-gray-900 whitespace-nowrap">
+                      ₦{product.price}
+                      {product.originalPrice && (
+                        <span className="text-gray-400 line-through ml-1.5 text-xs">
+                          ₦{product.originalPrice}
+                        </span>
+                      )}
+                    </td>
+                    <td className="px-5 py-3 text-gray-600 hidden md:table-cell">{product.stock}</td>
+                    <td className="px-5 py-3 hidden md:table-cell">
+                      <span className={`text-xs font-medium px-2.5 py-1 rounded-full whitespace-nowrap ${status.className}`}>
+                        {status.label}
                       </span>
-                    )}
-                  </td>
-                  <td className="px-5 py-3 text-gray-600">{product.stock}</td>
-                  <td className="px-5 py-3">
-                    <span className={`text-xs font-medium px-2.5 py-1 rounded-full ${status.className}`}>
-                      {status.label}
-                    </span>
-                  </td>
-                  <td className="px-5 py-3">
-                    <div className="flex items-center justify-end gap-2">
-                      <button
-                        onClick={() => navigate(`/products/${product._id}`)}
-                        className="text-gray-400 hover:text-[#2D7A0F] p-1.5 rounded-lg hover:bg-gray-50 transition"
-                        aria-label="View product"
-                      >
-                        <FiEye size={16} />
-                      </button>
-                      <button
-                        onClick={() => navigate(`/admin/edit-product/${product._id}`)}
-                        className="text-gray-400 hover:text-[#2D7A0F] p-1.5 rounded-lg hover:bg-gray-50 transition"
-                        aria-label="Edit product"
-                      >
-                        <FiEdit2 size={16} />
-                      </button>
-                      <button
-                        onClick={() => handleDelete(product._id, product.name)}
-                        disabled={deletingId === product._id}
-                        className="text-gray-400 hover:text-red-600 p-1.5 rounded-lg hover:bg-gray-50 transition disabled:opacity-50"
-                        aria-label="Delete product"
-                      >
-                        <FiTrash2 size={16} />
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+                    </td>
+                    <td className="px-5 py-3">
+                      <div className="flex items-center justify-end gap-2">
+                        <button
+                          onClick={() => navigate(`/products/${product._id}`)}
+                          className="text-gray-400 hover:text-[#2D7A0F] p-1.5 rounded-lg hover:bg-gray-50 transition"
+                          aria-label="View product"
+                        >
+                          <FiEye size={16} />
+                        </button>
+                        <button
+                          onClick={() => navigate(`/admin/edit-product/${product._id}`)}
+                          className="text-gray-400 hover:text-[#2D7A0F] p-1.5 rounded-lg hover:bg-gray-50 transition"
+                          aria-label="Edit product"
+                        >
+                          <FiEdit2 size={16} />
+                        </button>
+                        <button
+                          onClick={() => handleDelete(product._id, product.name)}
+                          disabled={deletingId === product._id}
+                          className="text-gray-400 hover:text-red-600 p-1.5 rounded-lg hover:bg-gray-50 transition disabled:opacity-50"
+                          aria-label="Delete product"
+                        >
+                          <FiTrash2 size={16} />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
 
         {filteredProducts.length === 0 && (
           <p className="text-center text-gray-400 text-sm py-10">
