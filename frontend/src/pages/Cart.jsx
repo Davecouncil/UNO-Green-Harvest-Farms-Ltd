@@ -95,11 +95,11 @@ export default function Cart() {
                     className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 border border-gray-200 rounded-xl p-3 sm:p-4"
                   >
                     <div className="flex items-center gap-3 sm:gap-4">
-                      <Link to={`/products/${product._id}`} className="flex-shrink-0">
+                      <Link to={`/products/${product._id}`} className="shrink-0">
                         <img
                           src={product.image}
                           alt={product.name}
-                          className="w-16 h-16 object-cover rounded-lg flex-shrink-0"
+                          className="w-16 h-16 object-cover rounded-lg shrink-0"
                         />
                       </Link>
 

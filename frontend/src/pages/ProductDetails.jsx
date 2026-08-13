@@ -83,13 +83,6 @@ function ProductDetails() {
     }
   };
 
-  // if (loading) {
-  //   return (
-  //     <div className="pt-20 sm:pt-24 max-w-7xl mx-auto px-4 sm:px-6 py-20 text-center text-gray-500 text-sm">
-  //       Loading product...
-  //     </div>
-  //   );
-  // }
     if (loading) {
       return (
         <div className="flex items-center h-screen justify-center "><Loader/></div>
@@ -110,7 +103,6 @@ function ProductDetails() {
     <div className="pt-20 sm:pt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
 
-        {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-500 mb-6 sm:mb-8 overflow-x-auto whitespace-nowrap">
           <Link to="/" className="hover:text-[#D69B06] transition-colors">
             Home
@@ -125,12 +117,11 @@ function ProductDetails() {
 
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
 
-          {/* Image */}
           <div className="relative">
             <img
               src={product.image}
               alt={product.name}
-              className="w-full h-[280px] sm:h-[360px] lg:h-[420px] object-cover rounded-2xl bg-gray-100"
+              className="w-full h-70 sm:h-90 lg:h-105 object-cover rounded-2xl bg-gray-100"
             />
 
             <button
@@ -163,7 +154,6 @@ function ProductDetails() {
             </button>
           </div>
 
-          {/* Details */}
           <div>
 
             <p className="uppercase text-xs tracking-wider text-gray-500 mb-2">
@@ -176,10 +166,10 @@ function ProductDetails() {
 
             <div className="mb-4 sm:mb-5">
               <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-black">
-                ${product.price}
+                ₦{product.price}
               </span>
               <span className="text-sm text-gray-400 ml-1">
-                {product.unit}
+                /{product.unit}
               </span>
             </div>
 
@@ -187,7 +177,6 @@ function ProductDetails() {
               {product.description}
             </p>
 
-            {/* Badges */}
             {product.badges?.length > 0 && (
               <div className="flex flex-wrap gap-2 mb-4 sm:mb-5">
                 {product.badges.map((badge) => (
@@ -240,7 +229,7 @@ function ProductDetails() {
                 </span>
 
                 <button
-                  onClick={() => setQuantity((q) => Math.min(product.stock, q + 1))}
+                  onClick={() => setQuantity((d) => Math.min(product.stock, d + 1))}
                   className="px-3 py-2.5 text-gray-600 hover:text-black transition"
                 >
                   <FiPlus size={14} />

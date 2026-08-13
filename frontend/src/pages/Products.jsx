@@ -47,7 +47,7 @@ function Products() {
     <div className="max-w-7xl mx-auto px-6 py-12">
 
       {/* Header */}
-      <p className="uppercase tracking-widest text-sm text-[#4D7C0F] font-semibold mb-2">
+      <p className="uppercase tracking-widest my-7 text-sm text-[#4D7C0F] font-semibold mb-2">
         Farm Fresh Selection
       </p>
 

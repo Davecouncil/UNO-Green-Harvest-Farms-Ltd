@@ -45,7 +45,6 @@ function ProductCard({ product }) {
       className="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 block"
     >
 
-      {/* Image */}
       <div className="relative overflow-hidden">
 
         <img
@@ -54,7 +53,6 @@ function ProductCard({ product }) {
           className="w-full h-36 sm:h-52 lg:h-64 object-cover transition duration-500 group-hover:scale-105"
         />
 
-        {/* Wishlist Heart */}
         <button
           onClick={handleToggleWishlist}
           disabled={wishlistLoading}
@@ -66,7 +64,6 @@ function ProductCard({ product }) {
           />
         </button>
 
-        {/* Hover Button */}
         <div
           className="
             absolute left-0 right-0 bottom-3 flex justify-center
@@ -81,7 +78,7 @@ function ProductCard({ product }) {
             variant="secondary"
             loading={status === "loading"}
             onClick={handleAddToCart}
-            className="!px-4 !py-1.5 !text-xs sm:!text-sm shadow-md"
+            className="px-4! py-1.5! text-xs! sm:text-sm! shadow-md"
           >
             {status === "added" ? "Added ✓" : status === "error" ? "Failed" : "Add to Cart"}
           </Button>
