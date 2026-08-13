@@ -110,3 +110,7 @@
 .delay-700 {
   animation-delay: .7s;
 }
+/* in your main CSS file, e.g. index.css */
+input, select, textarea {
+  font-size: 16px;
+}

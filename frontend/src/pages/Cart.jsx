@@ -32,6 +32,11 @@ export default function Cart() {
   const handleIncrease = (productId, currentQty) => {
     updateQuantity(productId, currentQty + 1);
   };
+  const handleClearCart = () => {
+  const confirmed = window.confirm("Clear your entire cart? This cannot be undone.");
+  if (!confirmed) return;
+  clearCart();
+};
 
   if (items.length === 0) {
     return (
@@ -149,7 +154,7 @@ export default function Cart() {
                 );
               })}
 
-              <Button variant="outline" onClick={clearCart}>
+              <Button variant="outline" onClick={handleClearCart}>
                 Clear Cart
               </Button>
             </div>

@@ -80,7 +80,7 @@ function ProductCard({ product }) {
             onClick={handleAddToCart}
             className="px-4! py-1.5! text-xs! sm:text-sm! shadow-md"
           >
-            {status === "added" ? "Added ✓" : status === "error" ? "Failed" : "Add to Cart"}
+            {status === "added" ? "Added ✓" : status === "error" ? "User Not Signed In " : "Add to Cart"}
           </Button>
         </div>
 

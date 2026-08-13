@@ -14,7 +14,7 @@ function ProductDetails() {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
-  const [status, setStatus] = useState("idle"); // idle | loading | inCart | removing | error
+  const [status, setStatus] = useState("idle");
   const [wishlistLoading, setWishlistLoading] = useState(false);
   const [heartPop, setHeartPop] = useState(false);
   const [cartPop, setCartPop] = useState(false);
