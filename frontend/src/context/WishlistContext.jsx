@@ -19,7 +19,7 @@ export function WishlistProvider({ children }) {
         const data = await wishlistService.getWishlist(token);
         setWishlist(data);
       } catch (error) {
-        setWishlist(null); // 404 just means no wishlist yet
+        setWishlist(null); 
       }
     };
 
