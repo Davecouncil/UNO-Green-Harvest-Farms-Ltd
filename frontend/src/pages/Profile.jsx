@@ -3,6 +3,7 @@ import { useAuth } from "../hooks/useAuth";
 import * as userService from "../services/userService";
 import * as orderService from "../services/orderService";
 import { FiEdit2, FiCamera, FiLock } from "react-icons/fi";
+import {Link} from "react-router-dom";
 
 const STATUS_COLORS = {
   Pending: "bg-yellow-100 text-yellow-700",
@@ -492,10 +493,14 @@ function Profile() {
         )}
 
         <button
+
           onClick={logoutUser}
           className="mt-8 bg-[#dcb458] hover:bg-[#c9a24d] text-black rounded-full px-6 py-2.5 text-sm font-semibold transition"
         >
+          <Link
+          to="/login">
           Log Out
+          </Link>
         </button>
       </div>
     </div>
