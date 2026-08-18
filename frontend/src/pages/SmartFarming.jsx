@@ -83,7 +83,7 @@ function SmartFarming() {
               title="Smart Farming"
               description="Harnessing cutting-edge technology to grow better food while
               protecting our planet for future generations."
-              bgImage="/images/smart-farm (1).png"
+              bgImage="/images/smart-farm (1).jpeg"
             />
 
       {/* Why Smart Farming */}
