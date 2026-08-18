@@ -32,7 +32,7 @@ export default function AdminLayout() {
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
         <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
-          <img src="/images/logo1.png" alt="Logo" className="h-15 w-19" />
+          <img src="/images/logo1 (1).png" alt="Logo" className="h-15 w-19" />
           <button
             className="lg:hidden text-gray-500 text-xl"
             onClick={() => setSidebarOpen(false)}
@@ -70,7 +70,7 @@ export default function AdminLayout() {
       <main className="flex-1 bg-gray-50 overflow-y-auto">
         {/* Mobile top bar with hamburger */}
         <div className="lg:hidden flex items-center justify-between px-4 py-3 bg-white border-b border-gray-200 sticky top-0 z-20">
-          <img src="/images/logo1.png" alt="Logo" className="h-10 w-auto" />
+          <img src="/images/logo1 (1).png" alt="Logo" className="h-10 w-auto" />
           <button
             className="text-gray-600 text-2xl"
             onClick={() => setSidebarOpen(true)}

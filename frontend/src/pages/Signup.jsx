@@ -55,7 +55,7 @@ function Signup() {
 
         <div className="relative z-10 flex flex-col justify-end p-12 text-white">
           <img
-            src="/images/logo1.png"
+            src="/images/logo1 (1).png"
             alt="UNO"
             className="w-14 bg-white rounded-md p-1 mb-8"
           />
@@ -76,7 +76,7 @@ function Signup() {
         <div className="w-full max-w-sm">
 
           <img
-            src="/images/logo1.png"
+            src="/images/logo1 (1).png"
             alt="UNO"
             className="w-12 lg:hidden mb-8"
           />

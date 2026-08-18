@@ -25,7 +25,7 @@ function Footer() {
         {/* Logo */}
         <div className="min-w-0">
           <img
-            src="/images/logo1.png"
+            src="/images/logo1 (1).png"
             alt="UNO"
             className="w-12 max-w-full bg-white rounded-md p-1 mb-4"
           />

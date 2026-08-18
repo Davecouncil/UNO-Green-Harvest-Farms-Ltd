@@ -39,7 +39,7 @@ function Sustainability() {
         <div className="relative">
 
           <img
-            src="/images/b264067e-f507-4bb2-afdc-e349d8016b57.png"
+            src="/images/b264067e-f507-4bb2-afdc-e349d8016b57 (1).png"
             alt="Farmers"
             className="rounded-2xl w-full h-80 sm:h-96 object-cover"
           />

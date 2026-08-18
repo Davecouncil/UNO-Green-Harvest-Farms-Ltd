@@ -70,7 +70,7 @@ const Navbar = () => {
 
         <NavLink to="/" onClick={() => setMenuOpen(false)}>
           <img
-            src="/images/logo1.png"
+            src="/images/logo1 (1).png"
             alt="UNO Green Harvest"
             className={`transition-all duration-500 object-contain ${
               solid ? "w-14" : "w-16"
@@ -108,17 +108,19 @@ const Navbar = () => {
             <FiSearch />
           </button> */}
           {!user && (
-            <NavLink 
+            <>            <NavLink 
             to="/login"
-            className={`text-sm font-semibold hover:text-[#dcb458] transition ${solid? "text-gray-800":"text-white"}`}
-            >
+            className={`text-sm font-semibold hover:text-[#dcb458] transition ${solid? "text-gray-800":"text-white"}`}>
               Login
-            </NavLink>,
+            </NavLink>
             <NavLink
             to="/signup"
              className={`text-sm font-semibold hover:text-[#dcb458] transition ${solid? "text-gray-800":"text-white"}`}
             > Signup</NavLink>
+            </>
+
           )}
+          
 
           <NavLink
             to="/profile"

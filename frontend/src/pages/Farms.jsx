@@ -14,7 +14,7 @@ export default function Farms() {
         badge="Our Land, Our Legacy"
         title="Our Farms"
         // description="Three generations of sustainable farming across 2,400 acres of fertile land. Discover the places where your food comes from."
-        bgImage="/images/farm-spot.png"
+        bgImage="/images/farm-spot (1).png"
       />
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16 grid lg:grid-cols-2 gap-12 items-center">

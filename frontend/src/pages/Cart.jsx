@@ -43,7 +43,7 @@ export default function Cart() {
       <div className="relative min-h-screen pt-28 sm:pt-32 flex flex-col items-center justify-center px-4">
         <div
           className="hidden lg:block fixed inset-0 -z-10 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/cart-bg.png')" }}
+          style={{ backgroundImage: "url('/images/cart-bg (1).png')" }}
         />
         <div className="bg-white rounded-2xl shadow-lg px-6 sm:px-10 py-10 sm:py-12 flex flex-col items-center text-center">
           <p className="font-dm text-xl sm:text-2xl text-gray-800 mb-2">Your cart is empty</p>
@@ -62,7 +62,7 @@ export default function Cart() {
     <div className="relative min-h-screen">
       <div
         className="hidden lg:block fixed inset-0 -z-10 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/cart-bg.png')" }}
+        style={{ backgroundImage: "url('/images/cart-bg (1).png')" }}
       />
 
       <div className="pt-28 sm:pt-32 pb-16 px-4 sm:px-6 max-w-6xl mx-auto">

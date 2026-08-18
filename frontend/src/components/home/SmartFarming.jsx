@@ -9,7 +9,7 @@ function SmartFarming() {
       <div
         className="relative overflow-hidden rounded-2xl bg-cover bg-center min-h-[420px]"
         style={{
-          backgroundImage: "url('/images/cart-bg.png')"
+          backgroundImage: "url('/images/cart-bg (1).png')"
         }}
       >
         {/* Dark Overlay */}

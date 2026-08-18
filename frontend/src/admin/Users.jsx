@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { getUsers } from "../services/userService";
 import { FiSearch } from "react-icons/fi";
+// import Loader from "../components/ui/Loader";
+import BallTriangle from "../components/ui/BallTriangle";
+
 
 export default function Users() {
   const { token } = useAuth();
@@ -39,7 +42,11 @@ export default function Users() {
     );
 
   if (loading) {
-    return <p className="text-gray-500 text-sm">Loading users...</p>;
+    // return <p className="text-gray-500 text-sm">Loading users...</p>;
+    return <div className="flex items-center h-screen justify-center ">
+      {/* <Loader/> */}
+       <BallTriangle />
+      </div>
   }
 
   if (error) {

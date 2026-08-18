@@ -22,7 +22,7 @@ function getInitials(name = "") {
 
 function Profile() {
   const { user, token, updateStoredUser, logoutUser } = useAuth();
-  const [tab, setTab] = useState("orders"); // default tab — "orders" is always visible
+  const [tab, setTab] = useState("orders");
   const [editing, setEditing] = useState(false);
 
   const [form, setForm] = useState({ userName: "", email: "", phone: "" });

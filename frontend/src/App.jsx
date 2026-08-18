@@ -2,9 +2,10 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 import ScrollToTop from "./components/ScrollToTop";
 import RequireSeller from "./components/RequireSeller";
-// import ProtectedRoute from "./context/ProtectedRoute";
+import ProtectedRoute from "./context/ProtectedRoute";
 
 import Navbar from "./components/layout/NavBar";
+import Footer from "./components/layout/Footer";
 import AdminLayout from "./layouts/AdminLayout";
 
 import Home from "./pages/Home";
@@ -29,7 +30,6 @@ import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 
 import AdminLogin from "./admin/AdminLogin";
-import Footer from "./components/layout/Footer";
 
 import AdminDashboard from "./admin/Dashboard";
 import AddProduct from "./admin/AddProduct";
@@ -41,8 +41,11 @@ import EditProduct from "./admin/EditProduct";
 
 function App() {
   const location = useLocation();
+
   const isAdminRoute = location.pathname.startsWith("/admin");
-  const hideNavAndFooter = ["/login", "/signup"].includes(location.pathname) || isAdminRoute;
+
+  const hideNavAndFooter =
+    ["/login", "/signup"].includes(location.pathname) || isAdminRoute;
 
   return (
     <>
@@ -51,47 +54,44 @@ function App() {
       {!hideNavAndFooter && <Navbar />}
 
       <Routes>
-        {/* <Route element={<ProtectedRoute />}> */}
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/products/:id" element={<ProductDetails />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/products/:id" element={<ProductDetails />} />
+        <Route path="/farms" element={<Farms />} />
+        <Route path="/smart-farming" element={<SmartFarming />} />
+        <Route path="/sustainability" element={<Sustainability />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
 
-          <Route path="/farms" element={<Farms />} />
-          <Route path="/smart-farming" element={<SmartFarming />} />
-          <Route path="/sustainability" element={<Sustainability />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/orders" element={<Orders />} />
+        <Route path="/orders/:id" element={<OrderDetails />} />
+        <Route path="/profile" element={<Profile />} />
 
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/checkout" element={<Checkout />} />
-
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/orders/:id" element={<OrderDetails />} />
-
-          <Route path="/profile" element={<Profile />} />
-        {/* </Route> */}
-
-        {/* These stay OUTSIDE ProtectedRoute — must be reachable without login */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+
         <Route path="/admin/login" element={<AdminLogin />} />
 
-        <Route
-          path="/admin"
-          element={
-            <RequireSeller>
-              <AdminLayout />
-            </RequireSeller>
-          }
-        >
-          <Route path="dashboard" element={<AdminDashboard />} />
-          <Route path="add-product" element={<AddProduct />} />
-          <Route path="inventory" element={<Inventory />} />
-          <Route path="users" element={<Users />} />
-          <Route path="orders" element={<OrderAdmin />} />
-          <Route path="analytics" element={<Analytics />} />
-          <Route path="edit-product/:id" element={<EditProduct />} />
+        <Route element={<ProtectedRoute />}>
+          <Route
+            path="/admin"
+            element={
+              <RequireSeller>
+                <AdminLayout />
+              </RequireSeller>
+            }
+          >
+            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="add-product" element={<AddProduct />} />
+            <Route path="inventory" element={<Inventory />} />
+            <Route path="users" element={<Users />} />
+            <Route path="orders" element={<OrderAdmin />} />
+            <Route path="analytics" element={<Analytics />} />
+            <Route path="edit-product/:id" element={<EditProduct />} />
+          </Route>
         </Route>
 
         <Route path="*" element={<NotFound />} />

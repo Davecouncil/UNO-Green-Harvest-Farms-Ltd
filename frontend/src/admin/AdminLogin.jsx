@@ -44,7 +44,7 @@ function AdminLogin() {
       <div className="w-full max-w-sm bg-white rounded-2xl shadow-lg p-8">
 
         <div className="flex flex-col items-center mb-6">
-          <img src="/images/logo1.png" alt="UNO" className="w-12 mb-4" />
+          <img src="/images/logo1 (1).png" alt="UNO" className="w-12 mb-4" />
           <p className="uppercase tracking-widest text-xs text-[#4D7C0F] font-semibold mb-1">
             Seller Portal
           </p>

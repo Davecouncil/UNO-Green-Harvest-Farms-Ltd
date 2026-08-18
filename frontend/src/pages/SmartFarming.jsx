@@ -1,6 +1,7 @@
 import { Sprout, Droplet, Sun } from "lucide-react";
 import StatCard from "../components/ui/StatsCard";
 import { FiCheck } from "react-icons/fi";
+import PageHero from "../components/ui/PageHero";
 
 
 
@@ -52,11 +53,11 @@ function SmartFarming() {
     <div>
 
       {/* Hero */}
-      <section
-        className="relative h-[500px] bg-cover bg-center flex items-center"
-        style={{ backgroundImage: "url('/images/smart-farm.png')" }}
+      {/* <section
+        className="relative h-125 bg-cover bg-center flex items-center"
+        style={{ backgroundImage: "url('/images/smart-farm (1).png')" }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a]/80 via-[#1a1a1a]/40 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-[#1a1a1a]/80 via-[#1a1a1a]/40 to-transparent" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
           <div className="max-w-xl text-white">
@@ -76,7 +77,14 @@ function SmartFarming() {
 
           </div>
         </div>
-      </section>
+      </section> */}
+            <PageHero
+              badge="Innovation Meets Agriculture"
+              title="Smart Farming"
+              description="Harnessing cutting-edge technology to grow better food while
+              protecting our planet for future generations."
+              bgImage="/images/smart-farm (1).png"
+            />
 
       {/* Why Smart Farming */}
       <section className="max-w-4xl mx-auto px-6 py-20 text-center">
@@ -212,7 +220,7 @@ function SmartFarming() {
         </div>
 
         <img
-          src="/images/future-farming.png"
+          src="/images/future-farming (1).png"
           alt="Autonomous tractor in a field with wind turbines"
           className="w-full h-96 object-cover rounded-2xl"
         />

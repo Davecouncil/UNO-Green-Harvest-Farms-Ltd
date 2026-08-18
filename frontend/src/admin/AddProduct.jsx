@@ -241,7 +241,7 @@ export default function AddProduct() {
             name="image"
             value={form.image}
             onChange={handleChange}
-            placeholder="/images/tomatoes.png"
+            placeholder="/images/tomatoes (1).png"
             className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-[#2D7A0F] focus:ring-1 focus:ring-[#2D7A0F] transition"
           />
         </div>

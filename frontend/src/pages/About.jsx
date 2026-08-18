@@ -83,7 +83,7 @@ function About() {
        
         title="About Us"
         // description="A family legacy of farming, a passion for quality, and an unwavering commitment to doing what is right for the land and our community."
-        bgImage="/images/farm-house.jpeg"
+        bgImage="/images/farm-house.png"
       />
 
       {/* Our Mission */}
@@ -124,7 +124,7 @@ function About() {
         </div>
 
         <img
-          src="/images/sustain.png"
+          src="/images/sustain (1).png"
           alt="Hands holding soil with a young seedling"
           className="w-full h-110 object-cover rounded-2xl"
         />
