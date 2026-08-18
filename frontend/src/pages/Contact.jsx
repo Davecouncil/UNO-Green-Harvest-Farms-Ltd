@@ -47,7 +47,7 @@ function Contact() {
         badge="Get in Touch"
         title="Contact Us"
         description="We would love to hear from you. Whether you have a question about our products, want to visit the farm, or just want to say hello — reach out anytime."
-        bgImage="/images/contact(1).png"
+        bgImage="/images/contact(1).jpeg"
       />
 
       <section className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-3 gap-16">

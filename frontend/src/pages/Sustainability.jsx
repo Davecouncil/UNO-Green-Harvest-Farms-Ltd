@@ -50,7 +50,7 @@ function Sustainability() {
         badge="Our Promise to the Planet"
         title="Sustainability"
         description="Farming in harmony with nature — because healthy soil, clean water, and thriving ecosystems are the foundation of everything we do."
-        bgImage="/images/sustain (1).png"
+        bgImage="/images/sustain (1).jpeg"
       />
 
       {/* Our Philosophy */}
